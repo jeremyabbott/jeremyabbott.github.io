@@ -339,10 +339,12 @@
 <span class="l">13: </span>
 <span class="l">14: </span>
 <span class="l">15: </span>
+<span class="l">16: </span>
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
 <span class="i">var</span> <span class="i">foo</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">global</span><span class="s"> </span><span class="s">foo</span><span class="s"> </span><span class="s">variable</span><span class="s">&quot;</span>;
+<span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 13)" onmouseover="showTip(event, 'fs1', 13)" class="i">log</span>(<span class="i">foo</span>); <span class="c">// &quot;global foo variable&quot;</span>
 
 <span class="c">// PascalCase indicating constructor function</span>
 <span class="k">function</span> <span class="i">Thing</span>() {
@@ -351,12 +353,12 @@
 
 <span class="c">// create a new Thing object using the _new_ operator</span>
 <span class="i">var</span> <span class="i">someThing</span> <span class="o">=</span> <span class="k">new</span> <span class="i">Thing</span>();
-<span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 13)" onmouseover="showTip(event, 'fs1', 13)" class="i">log</span>(<span class="i">someThing</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;thing&#39;s foo variable&quot;</span>
+<span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 14)" onmouseover="showTip(event, 'fs1', 14)" class="i">log</span>(<span class="i">someThing</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;thing&#39;s foo variable&quot;</span>
 
 <span class="c">// invoked without new operator</span>
 <span class="i">var</span> <span class="i">someOtherThing</span> <span class="o">=</span> <span class="i">Thing</span>();
-<span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 14)" onmouseover="showTip(event, 'fs1', 14)" class="i">log</span>(<span class="i">foo</span>); <span class="c">// &quot;thing&#39;s foo variable&quot;</span>
-<span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 15)" onmouseover="showTip(event, 'fs1', 15)" class="i">log</span>(<span class="i">someOtherThing</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// throws exception because someOtherThing is undefined. </span></pre>
+<span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 15)" onmouseover="showTip(event, 'fs1', 15)" class="i">log</span>(<span class="i">foo</span>); <span class="c">// &quot;thing&#39;s foo variable&quot;</span>
+<span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 16)" onmouseover="showTip(event, 'fs1', 16)" class="i">log</span>(<span class="i">someOtherThing</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// throws exception because someOtherThing is undefined. </span></pre>
 </td>
 </tr>
 </table>
@@ -391,7 +393,6 @@
 <span class="l">19: </span>
 <span class="l">20: </span>
 <span class="l">21: </span>
-<span class="l">22: </span>
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
@@ -407,15 +408,14 @@
             <span class="c">// helperFunction is not a method on Thing</span>
             <span class="c">// _this_ is bound to the global object&#39;s context.</span>
 
-            <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 16)" onmouseover="showTip(event, 'fs1', 16)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s"> </span><span class="s">from</span><span class="s"> </span><span class="s">helperFunction</span><span class="s">:</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">this</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;gobal foo&quot;</span>
+            <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 17)" onmouseover="showTip(event, 'fs1', 17)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s"> </span><span class="s">from</span><span class="s"> </span><span class="s">helperFunction</span><span class="s">:</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">this</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;global foo&quot;</span>
         }
         <span class="i">helperFunction</span>();
-        <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 17)" onmouseover="showTip(event, 'fs1', 17)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s"> </span><span class="s">from</span><span class="s"> </span><span class="s">within</span><span class="s"> </span><span class="s">printDescription</span><span class="s">:</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">this</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;foo property of Thing&quot;</span>
+        <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 18)" onmouseover="showTip(event, 'fs1', 18)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s"> </span><span class="s">from</span><span class="s"> </span><span class="s">within</span><span class="s"> </span><span class="s">printDescription</span><span class="s">:</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">this</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;foo property of Thing&quot;</span>
     }
 }
 
 <span class="i">var</span> <span class="i">someThing</span> <span class="o">=</span> <span class="k">new</span> <span class="i">Thing</span>();
-
 <span class="i">someThing</span><span class="o">.</span><span class="i">printDescription</span>();</pre>
 </td>
 </tr>
@@ -468,14 +468,14 @@
             <span class="c">// helperFunction is not a method on Thing</span>
             <span class="c">// _this_ is bound to the global object&#39;s context.</span>
 
-            <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 18)" onmouseover="showTip(event, 'fs1', 18)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s"> </span><span class="s">from</span><span class="s"> </span><span class="s">helperFunction</span><span class="s">:</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">this</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;gobal foo&quot;</span>
-            <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 19)" onmouseover="showTip(event, 'fs1', 19)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s"> </span><span class="s">from</span><span class="s"> </span><span class="s">Thing</span><span class="s"> </span><span class="s">constructor</span><span class="s"> </span><span class="s">function</span><span class="s"> </span><span class="s">(</span><span class="s">accessed</span><span class="s"> </span><span class="s">using</span><span class="s"> </span><span class="s">\&quot;</span><span class="s">self</span><span class="s">\&quot;</span><span class="s"> </span><span class="s">variable</span><span class="s">)</span><span class="s">;</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">self</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;foo property of Thing&quot;</span>
+            <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 19)" onmouseover="showTip(event, 'fs1', 19)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s"> </span><span class="s">from</span><span class="s"> </span><span class="s">helperFunction</span><span class="s">:</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">this</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;global foo&quot;</span>
+            <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 20)" onmouseover="showTip(event, 'fs1', 20)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s"> </span><span class="s">from</span><span class="s"> </span><span class="s">helperFunction</span><span class="s"> </span><span class="s">(</span><span class="s">accessed</span><span class="s"> </span><span class="s">using</span><span class="s"> </span><span class="s">\&quot;</span><span class="s">self</span><span class="s">\&quot;</span><span class="s"> </span><span class="s">variable</span><span class="s">)</span><span class="s">;</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">self</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;foo property of Thing&quot;</span>
         }
 
         <span class="i">helperFunction</span>();
 
         <span class="c">// note that self and _this_ are the same at this point!</span>
-        <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 20)" onmouseover="showTip(event, 'fs1', 20)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s">:</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">this</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;foo property of Thing&quot;</span>
+        <span class="i">console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 21)" onmouseover="showTip(event, 'fs1', 21)" class="i">log</span>(<span class="s">&quot;</span><span class="s">value</span><span class="s"> </span><span class="s">of</span><span class="s"> </span><span class="s">this</span><span class="s">.</span><span class="s">foo</span><span class="s"> </span><span class="s">from</span><span class="s"> </span><span class="s">within</span><span class="s"> </span><span class="s">printDescription</span><span class="s">:</span><span class="s"> </span><span class="s">&quot;</span> <span class="o">+</span> <span class="i">this</span><span class="o">.</span><span class="i">foo</span>); <span class="c">// &quot;foo property of Thing&quot;</span>
     }
 }
 
