@@ -5,10 +5,19 @@
     <description>I need a description
 </description>
     <item>
+      <title>Code on the Beach Wrap-up</title>
+      <guid>http://localhost:8080/FsBlog/blog/2015/08-18-code-on-the-beach-wrap-up</guid>
+      <link>http://localhost:8080/FsBlog/blog/2015/08-18-code-on-the-beach-wrap-up/index.html</link>
+      <pubDate>Tue, 18 Aug 2015 15:11:39 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
       <title>JavaScript: The Good Parts: The Good Parts</title>
       <guid>http://localhost:8080/FsBlog/blog/2015/06-17-JavaScriptTheGoodParts</guid>
       <link>http://localhost:8080/FsBlog/blog/2015/06-17-JavaScriptTheGoodParts/index.html</link>
-      <pubDate>Wed, 17 Jun 2015 14:34:00 GMT</pubDate>
+      <pubDate>Wed, 17 Jun 2015 12:34:00 GMT</pubDate>
       <description>
 
 </description>
