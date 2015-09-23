@@ -5,6 +5,15 @@
     <description>I need a description
 </description>
     <item>
+      <title>Mobile Apps w/ F#</title>
+      <guid>http://localhost:8080/FsBlog/blog/2015/09-23-mobile-apps-w-f</guid>
+      <link>http://localhost:8080/FsBlog/blog/2015/09-23-mobile-apps-w-f/index.html</link>
+      <pubDate>Wed, 23 Sep 2015 14:25:51 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
       <title>Code on the Beach Wrap-up</title>
       <guid>http://localhost:8080/FsBlog/blog/2015/08-18-code-on-the-beach-wrap-up</guid>
       <link>http://localhost:8080/FsBlog/blog/2015/08-18-code-on-the-beach-wrap-up/index.html</link>
