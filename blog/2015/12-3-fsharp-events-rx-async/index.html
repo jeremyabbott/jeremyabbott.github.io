@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Jeremy Abbott</title>
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/resources/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    
+    <!-- FSharp.Formatting Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/fsharp.formatting/tooltips.css" />
+    <script type="text/javascript" src="/fsharp.formatting/tooltips.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="" href="/rss.xml">
+</head>
+<body>
+    <!-- Mobile Nav Section -->
+    <nav class="navbar navbar-default visible-xs" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a type="button" class="navbar-toggle nav-link" href="http://github.com/jeremyabbott">
+                <i class="fa fa-github"></i>
+            </a>
+            
+            <a type="button" class="navbar-toggle nav-link" href="http://twitter.com/mrjabbott">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a type="button" class="navbar-toggle nav-link" href="mailto:jeremymabbott@gmail.com">
+                <i class="fa fa-envelope"></i>
+            </a>
+            <a class="navbar-brand" href="/">
+                <img src="http://www.gravatar.com/avatar/d2087702a492be991c18b4dc0fed20d1.png?s=35" class="img-circle" />
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="http://resumejeremyabbott.azurewebsites.net/">Résumé</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+
+    <!-- nav-menu-dropdown -->
+    <div class="btn-group hidden-xs" id="nav-menu">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="/blog"><i class="fa fa-pencil"></i>Blog</a></li>
+            <li><a href="http://resumejeremyabbott.azurewebsites.net/"><i class="fa fa-file-pdf-o"></i>Résumé</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+        </ul>
+    </div>
+
+    <!-- sidebar -->
+    <div class="col-sm-3 sidebar hidden-xs">
+        <header class="sidebar-header" role="banner">
+            <a href="/">
+                <img src="http://www.gravatar.com/avatar/d2087702a492be991c18b4dc0fed20d1?s=150" class="img-circle" />
+            </a>
+            <h3 class="title">
+                <a href="/">Jeremy Abbott</a>
+            </h3>
+            </header>
+        <div id="bio" class="text-center">
+        <p>I'm a developer at Shreveport development shop, Praeses, where I work as a project architect, developer, and recruiter. I work hard to deliver clean, extensible, and maintanble solutions to customer's business problems. I'm passionate about software as a profession and craft, and work to cultivate that mindset in my team members through constant training.</p>
+        <p>When I'm not writing code I'm advocating for LGBT equality.</p>
+        </div>
+        <div id="contact-list" class="text-center">
+            <ul class="list-unstyled list-inline">
+                <li>
+                    <a class="btn btn-default btn-sm" href="https://github.com/jeremyabbott">
+                        <i class="fa fa-github-alt fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-default btn-sm" href="https://twitter.com/mrjabbott">
+                        <i class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-default btn-sm" href="mailto:jeremymabbott@gmail.com">
+                        <i class="fa fa-envelope fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul id="contact-list-secondary" class="list-unstyled list-inline">
+                <li>
+                    <a class="btn btn-default btn-sm" href="/rss.xml">
+                        <i class="fa fa-rss fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-default btn-sm" href="http://resumejeremyabbott.azurewebsites.net/">
+                        <i class="fa fa-file-text-o fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="col-sm-9 col-sm-offset-3">
+        <div class="page-header">
+            <h1>Jeremy Abbott</h1>
+            <em>(Not the Figure Skater)</em>
+        </div>
+        <div class="container">
+            <h1>F# Events, Reactive Programming and Async Workflows</h1>
+
+
+<p>This is my contribution to the <a href="https://sergeytihon.wordpress.com/2015/10/25/f-advent-calendar-in-english-2015/">2015 F# Advent Calendar</a>. I hope you like it!</p>
+
+<p>The majority of my code-slinging career has focused on full stack web development which hasn't necessitated a lot of complex event-driven programming, unless you include the unholy event model in Web Forms. Even in the cases where I do need to work with events, it's usually abstracted behind a library or framework (shout out to Knockout). Since I've been doing more mobile development working with events has become more relevant which inspired me to dig into them and write this post. First we'll look very briefly at async programming in F# and then look at the F# programming model for events. Then we'll bring it all together in an applicable, if a little contrived, example.</p>
+
+<h1>F# Async Workflows</h1>
+
+<p>For whatever reason F# async workflows have been one of the hardest things for me to grok. The concepts started to click when I read <a href="http://dotnet.readthedocs.org/en/latest/async/async-fsharp.html">this</a> excellent write-up on the subject.</p>
+
+<p>The goal of asynchronous programming is to start expensive and/or time consuming processes on a separate thread and continue doing work on the main thread until we have to wait for the expensive task to finish. It's kind of like multitasking except that asynchronous programming actually is more efficient. ;)</p>
+
+<p>The following code sample shows a couple of "expensive" tasks running in sequence. We can't do anything on the main thread until they complete.</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">System</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">timer1</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">Timers</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">Timer</span>(<span class="n">500.</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">timer2</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs3', 6)" onmouseover="showTip(event, 'fs3', 6)" class="i">Timers</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 7)" onmouseover="showTip(event, 'fs4', 7)" class="i">Timer</span>(<span class="n">250.</span>)
+
+<span onmouseout="hideTip(event, 'fs2', 8)" onmouseover="showTip(event, 'fs2', 8)" class="i">timer1</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 9)" onmouseover="showTip(event, 'fs6', 9)" class="i">Elapsed</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 10)" onmouseover="showTip(event, 'fs7', 10)" class="i">Add</span>
+    (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs8', 11)" onmouseover="showTip(event, 'fs8', 11)" class="i">x</span> <span class="k">-&gt;</span>
+        <span onmouseout="hideTip(event, 'fs9', 12)" onmouseover="showTip(event, 'fs9', 12)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Timer</span><span class="s"> </span><span class="s">1</span><span class="s">:</span><span class="s"> </span><span class="s">%</span><span class="s">d</span><span class="s">:</span><span class="s">%</span><span class="s">d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 14)" onmouseover="showTip(event, 'fs10', 14)" class="i">SignalTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 15)" onmouseover="showTip(event, 'fs11', 15)" class="i">Second</span> <span onmouseout="hideTip(event, 'fs8', 16)" onmouseover="showTip(event, 'fs8', 16)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="i">SignalTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 18)" onmouseover="showTip(event, 'fs12', 18)" class="i">Millisecond</span>)
+<span onmouseout="hideTip(event, 'fs5', 19)" onmouseover="showTip(event, 'fs5', 19)" class="i">timer2</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 20)" onmouseover="showTip(event, 'fs6', 20)" class="i">Elapsed</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 21)" onmouseover="showTip(event, 'fs7', 21)" class="i">Add</span>
+    (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs8', 22)" onmouseover="showTip(event, 'fs8', 22)" class="i">x</span> <span class="k">-&gt;</span>
+        <span onmouseout="hideTip(event, 'fs9', 23)" onmouseover="showTip(event, 'fs9', 23)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Timer</span><span class="s"> </span><span class="s">2</span><span class="s">:</span><span class="s"> </span><span class="s">%</span><span class="s">d</span><span class="s">:</span><span class="s">%</span><span class="s">d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs8', 24)" onmouseover="showTip(event, 'fs8', 24)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 25)" onmouseover="showTip(event, 'fs10', 25)" class="i">SignalTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 26)" onmouseover="showTip(event, 'fs11', 26)" class="i">Second</span> <span onmouseout="hideTip(event, 'fs8', 27)" onmouseover="showTip(event, 'fs8', 27)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 28)" onmouseover="showTip(event, 'fs10', 28)" class="i">SignalTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 29)" onmouseover="showTip(event, 'fs12', 29)" class="i">Millisecond</span>)
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 30)" onmouseover="showTip(event, 'fs13', 30)" class="i">runTimer</span> (<span onmouseout="hideTip(event, 'fs14', 31)" onmouseover="showTip(event, 'fs14', 31)" class="i">t</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs1', 32)" onmouseover="showTip(event, 'fs1', 32)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 33)" onmouseover="showTip(event, 'fs3', 33)" class="i">Timers</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 34)" onmouseover="showTip(event, 'fs4', 34)" class="i">Timer</span>) (<span onmouseout="hideTip(event, 'fs15', 35)" onmouseover="showTip(event, 'fs15', 35)" class="i">s</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs16', 36)" onmouseover="showTip(event, 'fs16', 36)" class="i">int</span>) <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs14', 37)" onmouseover="showTip(event, 'fs14', 37)" class="i">t</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 38)" onmouseover="showTip(event, 'fs17', 38)" class="i">Start</span>()
+    <span onmouseout="hideTip(event, 'fs1', 39)" onmouseover="showTip(event, 'fs1', 39)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs18', 40)" onmouseover="showTip(event, 'fs18', 40)" class="i">Threading</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 41)" onmouseover="showTip(event, 'fs19', 41)" class="i">Thread</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs20', 42)" onmouseover="showTip(event, 'fs20', 42)" class="i">Sleep</span> <span onmouseout="hideTip(event, 'fs15', 43)" onmouseover="showTip(event, 'fs15', 43)" class="i">s</span>
+    <span onmouseout="hideTip(event, 'fs14', 44)" onmouseover="showTip(event, 'fs14', 44)" class="i">t</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs21', 45)" onmouseover="showTip(event, 'fs21', 45)" class="i">Stop</span>()
+
+<span class="c">//Run timers sequentially</span>
+<span onmouseout="hideTip(event, 'fs13', 46)" onmouseover="showTip(event, 'fs13', 46)" class="i">runTimer</span> <span onmouseout="hideTip(event, 'fs2', 47)" onmouseover="showTip(event, 'fs2', 47)" class="i">timer1</span> <span class="n">2500</span>
+<span onmouseout="hideTip(event, 'fs13', 48)" onmouseover="showTip(event, 'fs13', 48)" class="i">runTimer</span> <span onmouseout="hideTip(event, 'fs5', 49)" onmouseover="showTip(event, 'fs5', 49)" class="i">timer2</span> <span class="n">2500</span></pre>
+</td>
+</tr>
+</table>
+
+<p>While the above code is contrived it's not hard to imagine each timer representing an HTTP request to a web API to get data that our app needs before it can be useful. As it stands we have to wait 5 seconds for these tasks to finish before the app startup completes.</p>
+
+<p>Now here's the same code using F# Async Workflows:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 50)" onmouseover="showTip(event, 'fs1', 50)" class="i">System</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 51)" onmouseover="showTip(event, 'fs2', 51)" class="i">timer1</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs3', 52)" onmouseover="showTip(event, 'fs3', 52)" class="i">Timers</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 53)" onmouseover="showTip(event, 'fs4', 53)" class="i">Timer</span>(<span class="n">500.</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 54)" onmouseover="showTip(event, 'fs5', 54)" class="i">timer2</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs3', 55)" onmouseover="showTip(event, 'fs3', 55)" class="i">Timers</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 56)" onmouseover="showTip(event, 'fs4', 56)" class="i">Timer</span>(<span class="n">250.</span>)
+
+<span onmouseout="hideTip(event, 'fs2', 57)" onmouseover="showTip(event, 'fs2', 57)" class="i">timer1</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 58)" onmouseover="showTip(event, 'fs6', 58)" class="i">Elapsed</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 59)" onmouseover="showTip(event, 'fs7', 59)" class="i">Add</span>
+    (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs8', 60)" onmouseover="showTip(event, 'fs8', 60)" class="i">x</span> <span class="k">-&gt;</span>
+        <span onmouseout="hideTip(event, 'fs9', 61)" onmouseover="showTip(event, 'fs9', 61)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Timer</span><span class="s"> </span><span class="s">1</span><span class="s">:</span><span class="s"> </span><span class="s">%</span><span class="s">d</span><span class="s">:</span><span class="s">%</span><span class="s">d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs8', 62)" onmouseover="showTip(event, 'fs8', 62)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 63)" onmouseover="showTip(event, 'fs10', 63)" class="i">SignalTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 64)" onmouseover="showTip(event, 'fs11', 64)" class="i">Second</span> <span onmouseout="hideTip(event, 'fs8', 65)" onmouseover="showTip(event, 'fs8', 65)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 66)" onmouseover="showTip(event, 'fs10', 66)" class="i">SignalTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 67)" onmouseover="showTip(event, 'fs12', 67)" class="i">Millisecond</span>)
+<span onmouseout="hideTip(event, 'fs5', 68)" onmouseover="showTip(event, 'fs5', 68)" class="i">timer2</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 69)" onmouseover="showTip(event, 'fs6', 69)" class="i">Elapsed</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 70)" onmouseover="showTip(event, 'fs7', 70)" class="i">Add</span>
+    (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs8', 71)" onmouseover="showTip(event, 'fs8', 71)" class="i">x</span> <span class="k">-&gt;</span>
+        <span onmouseout="hideTip(event, 'fs9', 72)" onmouseover="showTip(event, 'fs9', 72)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Timer</span><span class="s"> </span><span class="s">2</span><span class="s">:</span><span class="s"> </span><span class="s">%</span><span class="s">d</span><span class="s">:</span><span class="s">%</span><span class="s">d</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs8', 73)" onmouseover="showTip(event, 'fs8', 73)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 74)" onmouseover="showTip(event, 'fs10', 74)" class="i">SignalTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 75)" onmouseover="showTip(event, 'fs11', 75)" class="i">Second</span> <span onmouseout="hideTip(event, 'fs8', 76)" onmouseover="showTip(event, 'fs8', 76)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 77)" onmouseover="showTip(event, 'fs10', 77)" class="i">SignalTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 78)" onmouseover="showTip(event, 'fs12', 78)" class="i">Millisecond</span>)
+
+<span class="c">// new stuff starts here</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs22', 79)" onmouseover="showTip(event, 'fs22', 79)" class="i">runTimerAsync</span> (<span onmouseout="hideTip(event, 'fs14', 80)" onmouseover="showTip(event, 'fs14', 80)" class="i">t</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs1', 81)" onmouseover="showTip(event, 'fs1', 81)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 82)" onmouseover="showTip(event, 'fs3', 82)" class="i">Timers</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 83)" onmouseover="showTip(event, 'fs4', 83)" class="i">Timer</span>) <span onmouseout="hideTip(event, 'fs15', 84)" onmouseover="showTip(event, 'fs15', 84)" class="i">s</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs23', 85)" onmouseover="showTip(event, 'fs23', 85)" class="i">async</span> {
+        <span onmouseout="hideTip(event, 'fs14', 86)" onmouseover="showTip(event, 'fs14', 86)" class="i">t</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 87)" onmouseover="showTip(event, 'fs17', 87)" class="i">Start</span>()
+        <span class="c">// Async workflow needs to do something (basically block here)</span>
+        <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs24', 88)" onmouseover="showTip(event, 'fs24', 88)" class="i">Async</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs25', 89)" onmouseover="showTip(event, 'fs25', 89)" class="i">Sleep</span> <span onmouseout="hideTip(event, 'fs15', 90)" onmouseover="showTip(event, 'fs15', 90)" class="i">s</span>
+        <span onmouseout="hideTip(event, 'fs14', 91)" onmouseover="showTip(event, 'fs14', 91)" class="i">t</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs21', 92)" onmouseover="showTip(event, 'fs21', 92)" class="i">Stop</span>()        
+    }
+
+<span class="c">// Run timers in parallel</span>
+<span onmouseout="hideTip(event, 'fs24', 93)" onmouseover="showTip(event, 'fs24', 93)" class="i">Async</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs26', 94)" onmouseover="showTip(event, 'fs26', 94)" class="i">Parallel</span> [(<span onmouseout="hideTip(event, 'fs22', 95)" onmouseover="showTip(event, 'fs22', 95)" class="i">runTimerAsync</span> <span onmouseout="hideTip(event, 'fs2', 96)" onmouseover="showTip(event, 'fs2', 96)" class="i">timer1</span> <span class="n">5000</span>); (<span onmouseout="hideTip(event, 'fs22', 97)" onmouseover="showTip(event, 'fs22', 97)" class="i">runTimerAsync</span> <span onmouseout="hideTip(event, 'fs5', 98)" onmouseover="showTip(event, 'fs5', 98)" class="i">timer2</span> <span class="n">5000</span>)]
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs24', 99)" onmouseover="showTip(event, 'fs24', 99)" class="i">Async</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs27', 100)" onmouseover="showTip(event, 'fs27', 100)" class="i">RunSynchronously</span></pre>
+</td>
+</tr>
+</table>
+
+<p>Thanks to Async Workflows we've cut the amount of time it takes to regain control of the main thread nearly in half. But what if we could fire off each "request" independently and let the async workflow notify us when it's done? That's exactly what the following example does:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span onmouseout="hideTip(event, 'fs24', 101)" onmouseover="showTip(event, 'fs24', 101)" class="i">Async</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs28', 102)" onmouseover="showTip(event, 'fs28', 102)" class="i">StartWithContinuations</span>(
+    <span onmouseout="hideTip(event, 'fs22', 103)" onmouseover="showTip(event, 'fs22', 103)" class="i">runTimerAsync</span> <span onmouseout="hideTip(event, 'fs2', 104)" onmouseover="showTip(event, 'fs2', 104)" class="i">timer1</span> <span class="n">2500</span>,
+    (<span class="k">fun</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 105)" onmouseover="showTip(event, 'fs9', 105)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Timer</span><span class="s"> </span><span class="s">1</span><span class="s"> </span><span class="s">finished</span><span class="s">&quot;</span>),
+    (<span class="k">fun</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 106)" onmouseover="showTip(event, 'fs9', 106)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Timer</span><span class="s"> </span><span class="s">1</span><span class="s"> </span><span class="s">threw</span><span class="s"> </span><span class="s">an</span><span class="s"> </span><span class="s">exception</span><span class="s">&quot;</span>),
+    (<span class="k">fun</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 107)" onmouseover="showTip(event, 'fs9', 107)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Cancelled</span><span class="s"> </span><span class="s">Timer</span><span class="s"> </span><span class="s">1</span><span class="s">&quot;</span>))
+
+<span onmouseout="hideTip(event, 'fs24', 108)" onmouseover="showTip(event, 'fs24', 108)" class="i">Async</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs28', 109)" onmouseover="showTip(event, 'fs28', 109)" class="i">StartWithContinuations</span>(
+    <span onmouseout="hideTip(event, 'fs22', 110)" onmouseover="showTip(event, 'fs22', 110)" class="i">runTimerAsync</span> <span onmouseout="hideTip(event, 'fs5', 111)" onmouseover="showTip(event, 'fs5', 111)" class="i">timer2</span> <span class="n">1500</span>,
+    (<span class="k">fun</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 112)" onmouseover="showTip(event, 'fs9', 112)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Timer</span><span class="s"> </span><span class="s">2</span><span class="s"> </span><span class="s">finished</span><span class="s">&quot;</span>),
+    (<span class="k">fun</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 113)" onmouseover="showTip(event, 'fs9', 113)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Timer</span><span class="s"> </span><span class="s">2</span><span class="s"> </span><span class="s">threw</span><span class="s"> </span><span class="s">an</span><span class="s"> </span><span class="s">exception</span><span class="s">&quot;</span>),
+    (<span class="k">fun</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 114)" onmouseover="showTip(event, 'fs9', 114)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Cancelled</span><span class="s"> </span><span class="s">Timer</span><span class="s"> </span><span class="s">2</span><span class="s">&quot;</span>))
+
+<span onmouseout="hideTip(event, 'fs9', 115)" onmouseover="showTip(event, 'fs9', 115)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Some</span><span class="s"> </span><span class="s">other</span><span class="s"> </span><span class="s">task</span><span class="s"> </span><span class="s">that</span><span class="s"> </span><span class="s">isn&#39;t</span><span class="s"> </span><span class="s">blocked</span><span class="s">&quot;</span>
+<span class="c">// the output will be something like:</span>
+<span class="c">// &quot;Some other task that isn&#39;t blocked&quot;</span>
+<span class="c">// timer output...</span>
+<span class="c">// &quot;Timer 2 finished&quot;</span>
+<span class="c">// &quot;Timer 1 finished&quot;</span></pre>
+</td>
+</tr>
+</table>
+
+<p>In the example above the list of async workflows is broken into two Async.StartWithContinuations calls. Each runs indepdently somewhere in the background and is given a function to execute when the task is done. Each async call is non-blocking which means work can continue on the main thread until the expensive task completes.</p>
+
+<h1>F# Events</h1>
+
+<p>F# events are straightforward to work with. When working with existing events you can add a handler to the event using the <code>Event.Add</code> method. Referring back to the timer instances from the previous example, we were ble to add handlers for the Elapsed event with lambdas (anonymous functions) like this:  <code>timer.Elapsed.Add (fun x -&gt; printfn "%A" x)</code>.</p>
+
+<p>Adding a custom event to a type (class) is also simple. Let's create a type that can determine whether or not a number is prime, and fires an event when called. <em>I chose prime numbers because they come up a lot in programming exercises, and it's interesting see the different ways to efficiently determine if a number is prime.</em></p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="c">// Type for testing primality of numbers</span>
+<span class="c">// Include custom event that triggers when helper is called.</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs29', 116)" onmouseover="showTip(event, 'fs29', 116)" class="i">PrimeFinder</span>() <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs30', 117)" onmouseover="showTip(event, 'fs30', 117)" class="i">primeFoundEvent</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs31', 118)" onmouseover="showTip(event, 'fs31', 118)" class="i">Event</span><span class="o">&lt;</span>_<span class="o">&gt;</span>()
+
+    <span class="k">member</span> <span onmouseout="hideTip(event, 'fs32', 119)" onmouseover="showTip(event, 'fs32', 119)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs33', 120)" onmouseover="showTip(event, 'fs33', 120)" class="i">PrimeFound</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 121)" onmouseover="showTip(event, 'fs30', 121)" class="i">primeFoundEvent</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs34', 122)" onmouseover="showTip(event, 'fs34', 122)" class="i">Publish</span>
+    <span class="k">member</span> <span onmouseout="hideTip(event, 'fs32', 123)" onmouseover="showTip(event, 'fs32', 123)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs35', 124)" onmouseover="showTip(event, 'fs35', 124)" class="i">IsPrime</span> <span onmouseout="hideTip(event, 'fs36', 125)" onmouseover="showTip(event, 'fs36', 125)" class="i">n</span> <span class="o">=</span>
+        <span onmouseout="hideTip(event, 'fs30', 126)" onmouseover="showTip(event, 'fs30', 126)" class="i">primeFoundEvent</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs37', 127)" onmouseover="showTip(event, 'fs37', 127)" class="i">Trigger</span>(<span onmouseout="hideTip(event, 'fs32', 128)" onmouseover="showTip(event, 'fs32', 128)" class="i">x</span>, (<span onmouseout="hideTip(event, 'fs36', 129)" onmouseover="showTip(event, 'fs36', 129)" class="i">n</span>, <span class="i">isPrime</span> <span onmouseout="hideTip(event, 'fs36', 130)" onmouseover="showTip(event, 'fs36', 130)" class="i">n</span>))
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs38', 131)" onmouseover="showTip(event, 'fs38', 131)" class="i">primeFinder</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs29', 132)" onmouseover="showTip(event, 'fs29', 132)" class="i">PrimeFinder</span>()
+<span onmouseout="hideTip(event, 'fs38', 133)" onmouseover="showTip(event, 'fs38', 133)" class="i">primeFinder</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 134)" onmouseover="showTip(event, 'fs39', 134)" class="i">PrimeFound</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 135)" onmouseover="showTip(event, 'fs7', 135)" class="i">Add</span> (<span class="k">fun</span> (_, <span onmouseout="hideTip(event, 'fs40', 136)" onmouseover="showTip(event, 'fs40', 136)" class="i">e</span>) <span class="k">-&gt;</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs40', 137)" onmouseover="showTip(event, 'fs40', 137)" class="i">e</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs36', 138)" onmouseover="showTip(event, 'fs36', 138)" class="i">n</span>, <span class="k">true</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 139)" onmouseover="showTip(event, 'fs9', 139)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">d</span><span class="s"> </span><span class="s">is</span><span class="s"> </span><span class="s">prime</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs36', 140)" onmouseover="showTip(event, 'fs36', 140)" class="i">n</span>
+    | <span onmouseout="hideTip(event, 'fs36', 141)" onmouseover="showTip(event, 'fs36', 141)" class="i">n</span>, <span class="k">false</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 142)" onmouseover="showTip(event, 'fs9', 142)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">d</span><span class="s"> </span><span class="s">is</span><span class="s"> </span><span class="s">not</span><span class="s"> </span><span class="s">prime</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs36', 143)" onmouseover="showTip(event, 'fs36', 143)" class="i">n</span>)
+
+<span onmouseout="hideTip(event, 'fs38', 144)" onmouseover="showTip(event, 'fs38', 144)" class="i">primeFinder</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 145)" onmouseover="showTip(event, 'fs41', 145)" class="i">IsPrime</span> <span class="n">3L</span> <span class="c">// prints &quot;3 is prime&quot;</span>
+<span class="c">// PrimeFound event should not fire</span>
+<span onmouseout="hideTip(event, 'fs38', 146)" onmouseover="showTip(event, 'fs38', 146)" class="i">primeFinder</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 147)" onmouseover="showTip(event, 'fs41', 147)" class="i">IsPrime</span> <span class="n">4L</span> <span class="c">// prints &quot;4 is not prime&quot;</span></pre>
+</td>
+</tr>
+</table>
+
+<p>Inside of the <code>PrimeFinder</code> type the event <code>primeFoundEvent</code> is defined. It's correpsonding type isn't defined explicitly, notice the wildcard "<code>_</code>" passed as the type to <code>Event&lt;_&gt;</code>, which means the compiler will figure out the event's type based on how it's used. The member <code>PrimeFound</code> is of type <code>IEvent&lt;PrimeFinder * obj&gt;</code>, and is what callers will wire handlers to.</p>
+
+<p>The member <code>IsPrime</code> is responsible for triggering the <code>primeFoundEvent</code>. The handler wired up to <code>PrimeFound</code> is called with a tuple, <code>Sender * Args</code>, passed in.</p>
+
+<p>Note that <code>IEvent&lt;PrimeFinder * obj&gt;</code> changes to <code>IEvent&lt;PrimeFinder * (int64 * bool)&gt;</code> after <code>primeFoundEvent.Trigger</code> is called with an event argument of type <code>int64 * bool</code>. Once <code>Trigger</code> is called with an argument the F# compiler can infer the type of <code>primeFoundEvent</code>.</p>
+
+<p>One of the neat things about F# events though is that you can treat them as event streams (like with Rx programming). An event stream is essentially a collection of events that you can apply function calls like <code>map</code>, <code>reduce</code>, and <code>filter</code> to.</p>
+
+<p>So maybe we only want the event to call our handler when a number is prime? We could easily update our handler to only print when a number is prime, but what if we could separate out the responsibility of handling the event from determining whether or not we <em>should</em> handle the event?</p>
+
+<p>The following sample take the PrimeFound event stream and returns only events whose argument is prime. The same handler used previously is then added to the filtered stream. The logic for determining <em>when</em> to handle an event is now separate from the logic describing <em>how</em> to handle an event.</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs38', 148)" onmouseover="showTip(event, 'fs38', 148)" class="i">primeFinder</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs29', 149)" onmouseover="showTip(event, 'fs29', 149)" class="i">PrimeFinder</span>()
+
+<span onmouseout="hideTip(event, 'fs38', 150)" onmouseover="showTip(event, 'fs38', 150)" class="i">primeFinder</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 151)" onmouseover="showTip(event, 'fs39', 151)" class="i">PrimeFound</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 152)" onmouseover="showTip(event, 'fs31', 152)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs42', 153)" onmouseover="showTip(event, 'fs42', 153)" class="i">filter</span> (<span class="k">fun</span> (_, <span onmouseout="hideTip(event, 'fs40', 154)" onmouseover="showTip(event, 'fs40', 154)" class="i">e</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs43', 155)" onmouseover="showTip(event, 'fs43', 155)" class="i">snd</span> <span onmouseout="hideTip(event, 'fs40', 156)" onmouseover="showTip(event, 'fs40', 156)" class="i">e</span>) <span class="c">// only where the number was prime</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 157)" onmouseover="showTip(event, 'fs31', 157)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 158)" onmouseover="showTip(event, 'fs44', 158)" class="i">add</span> (<span class="k">fun</span> (_, <span onmouseout="hideTip(event, 'fs40', 159)" onmouseover="showTip(event, 'fs40', 159)" class="i">e</span>) <span class="k">-&gt;</span>
+        <span class="k">match</span> <span onmouseout="hideTip(event, 'fs40', 160)" onmouseover="showTip(event, 'fs40', 160)" class="i">e</span> <span class="k">with</span>
+        | <span onmouseout="hideTip(event, 'fs36', 161)" onmouseover="showTip(event, 'fs36', 161)" class="i">n</span>, <span class="k">true</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 162)" onmouseover="showTip(event, 'fs9', 162)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">d</span><span class="s"> </span><span class="s">is</span><span class="s"> </span><span class="s">prime</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs36', 163)" onmouseover="showTip(event, 'fs36', 163)" class="i">n</span>
+        | <span onmouseout="hideTip(event, 'fs36', 164)" onmouseover="showTip(event, 'fs36', 164)" class="i">n</span>, <span class="k">false</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 165)" onmouseover="showTip(event, 'fs9', 165)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">d</span><span class="s"> </span><span class="s">is</span><span class="s"> </span><span class="s">not</span><span class="s"> </span><span class="s">prime</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs36', 166)" onmouseover="showTip(event, 'fs36', 166)" class="i">n</span>)
+
+<span class="c">// PrimeFound handler should fire.</span>
+<span onmouseout="hideTip(event, 'fs38', 167)" onmouseover="showTip(event, 'fs38', 167)" class="i">primeFinder</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 168)" onmouseover="showTip(event, 'fs41', 168)" class="i">IsPrime</span> <span class="n">3L</span>
+<span class="c">// PrimeFound handler should not fire</span>
+<span onmouseout="hideTip(event, 'fs38', 169)" onmouseover="showTip(event, 'fs38', 169)" class="i">primeFinder</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs41', 170)" onmouseover="showTip(event, 'fs41', 170)" class="i">IsPrime</span> <span class="n">4L</span></pre>
+</td>
+</tr>
+</table>
+
+<p>What's really nice about this approach is that we can change our filtering logic at any time without touching the event handler. <code>PrimeFound</code> can be treated as a stream by virtue of being of type IEvent thanks to <code>primeFoundEvent.Publish</code>.</p>
+
+<h1>More Events</h1>
+
+<p>Now let's say we want to start a long running process in the background and we want to be able to check on the status of it as we go. The code for the background process might look something like:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs45', 171)" onmouseover="showTip(event, 'fs45', 171)" class="i">findPrimesAsync</span> <span onmouseout="hideTip(event, 'fs46', 172)" onmouseover="showTip(event, 'fs46', 172)" class="i">numbers</span> <span onmouseout="hideTip(event, 'fs47', 173)" onmouseover="showTip(event, 'fs47', 173)" class="i">primeTester</span> <span class="o">=</span> 
+    <span class="k">let</span> <span class="k">rec</span> <span onmouseout="hideTip(event, 'fs48', 174)" onmouseover="showTip(event, 'fs48', 174)" class="i">findPrimes</span> <span onmouseout="hideTip(event, 'fs49', 175)" onmouseover="showTip(event, 'fs49', 175)" class="i">n</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs23', 176)" onmouseover="showTip(event, 'fs23', 176)" class="i">async</span> {
+        <span class="k">match</span> <span onmouseout="hideTip(event, 'fs49', 177)" onmouseover="showTip(event, 'fs49', 177)" class="i">n</span> <span class="k">with</span>
+        | <span onmouseout="hideTip(event, 'fs50', 178)" onmouseover="showTip(event, 'fs50', 178)" class="i">h</span><span class="o">::</span><span onmouseout="hideTip(event, 'fs51', 179)" onmouseover="showTip(event, 'fs51', 179)" class="i">t</span> <span class="k">-&gt;</span>
+            <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs24', 180)" onmouseover="showTip(event, 'fs24', 180)" class="i">Async</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs52', 181)" onmouseover="showTip(event, 'fs52', 181)" class="i">SwitchToNewThread</span>()
+            <span onmouseout="hideTip(event, 'fs47', 182)" onmouseover="showTip(event, 'fs47', 182)" class="i">primeTester</span> <span onmouseout="hideTip(event, 'fs50', 183)" onmouseover="showTip(event, 'fs50', 183)" class="i">h</span>
+            <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs24', 184)" onmouseover="showTip(event, 'fs24', 184)" class="i">Async</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs53', 185)" onmouseover="showTip(event, 'fs53', 185)" class="i">SwitchToThreadPool</span>()
+            <span class="k">do!</span> <span onmouseout="hideTip(event, 'fs48', 186)" onmouseover="showTip(event, 'fs48', 186)" class="i">findPrimes</span> <span onmouseout="hideTip(event, 'fs51', 187)" onmouseover="showTip(event, 'fs51', 187)" class="i">t</span>
+        | [] <span class="k">-&gt;</span> ()
+
+    }
+    <span onmouseout="hideTip(event, 'fs48', 188)" onmouseover="showTip(event, 'fs48', 188)" class="i">findPrimes</span> <span class="i">number</span></pre>
+</td>
+</tr>
+</table>
+
+<p><code>findPrimesAsync</code> takes an list of numbers and a function that determines the "primality" of a number and then applies that function to each number in an async workflow. There are a lot of ways to iterate over the collection and apply the <code>primeTester</code> function to each item, but I went with an F# list to see what it looked like being solved recursively. Note that the first time you call the inner recurisve function <code>findPrimes</code> you can't use the <code>do!</code> binding because you're outside the async workflow (this is probably obvious to most people but it wan't to me... fortunately the compiler will tell you).</p>
+
+<p>At this point we could declare a mutable binding (boo), fire off Async.Start on <code>findPrimesAsync</code> and use <code>PrimeFinder</code> to set the mutable binding whenever a prime is find. We could then access the mutable binding later. However, the best way to get comfortable with F# is to write it idomatically so let's see how we can tackle this functionally, and without mutable state.</p>
+
+<p>We already know we can wire a handler that will get called whenever a prime is found. It would be nice if there was an event whose argument was the most recent prime number to be processed...</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="c">// Record type give our event args some structure</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs54', 189)" onmouseover="showTip(event, 'fs54', 189)" class="i">PrimeTime</span> <span class="o">=</span>
+    {<span onmouseout="hideTip(event, 'fs55', 190)" onmouseover="showTip(event, 'fs55', 190)" class="i">Time</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 191)" onmouseover="showTip(event, 'fs56', 191)" class="i">DateTime</span>; <span onmouseout="hideTip(event, 'fs57', 192)" onmouseover="showTip(event, 'fs57', 192)" class="i">Prime</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs58', 193)" onmouseover="showTip(event, 'fs58', 193)" class="i">int64</span> <span onmouseout="hideTip(event, 'fs59', 194)" onmouseover="showTip(event, 'fs59', 194)" class="i">option</span>; <span onmouseout="hideTip(event, 'fs60', 195)" onmouseover="showTip(event, 'fs60', 195)" class="i">ID</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs61', 196)" onmouseover="showTip(event, 'fs61', 196)" class="i">string</span>}
+    <span class="k">override</span> <span onmouseout="hideTip(event, 'fs62', 197)" onmouseover="showTip(event, 'fs62', 197)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs63', 198)" onmouseover="showTip(event, 'fs63', 198)" class="i">ToString</span>() <span class="o">=</span>
+        <span onmouseout="hideTip(event, 'fs64', 199)" onmouseover="showTip(event, 'fs64', 199)" class="i">sprintf</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">d</span><span class="s"> </span><span class="s">-</span><span class="s"> </span><span class="s">%</span><span class="s">s</span><span class="s">&quot;</span> 
+            (<span class="k">match</span> <span onmouseout="hideTip(event, 'fs62', 200)" onmouseover="showTip(event, 'fs62', 200)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs57', 201)" onmouseover="showTip(event, 'fs57', 201)" class="i">Prime</span> <span class="k">with</span> | <span onmouseout="hideTip(event, 'fs65', 202)" onmouseover="showTip(event, 'fs65', 202)" class="i">Some</span>(<span onmouseout="hideTip(event, 'fs66', 203)" onmouseover="showTip(event, 'fs66', 203)" class="i">e</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs66', 204)" onmouseover="showTip(event, 'fs66', 204)" class="i">e</span> | <span onmouseout="hideTip(event, 'fs67', 205)" onmouseover="showTip(event, 'fs67', 205)" class="i">None</span> <span class="k">-&gt;</span> <span class="n">0L</span>)
+            (<span onmouseout="hideTip(event, 'fs62', 206)" onmouseover="showTip(event, 'fs62', 206)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs55', 207)" onmouseover="showTip(event, 'fs55', 207)" class="i">Time</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs68', 208)" onmouseover="showTip(event, 'fs68', 208)" class="i">ToLongTimeString</span>())
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs38', 209)" onmouseover="showTip(event, 'fs38', 209)" class="i">primeFinder</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs29', 210)" onmouseover="showTip(event, 'fs29', 210)" class="i">PrimeFinder</span>()
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs69', 211)" onmouseover="showTip(event, 'fs69', 211)" class="i">pFound</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs38', 212)" onmouseover="showTip(event, 'fs38', 212)" class="i">primeFinder</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 213)" onmouseover="showTip(event, 'fs39', 213)" class="i">PrimeFound</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 214)" onmouseover="showTip(event, 'fs31', 214)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs42', 215)" onmouseover="showTip(event, 'fs42', 215)" class="i">filter</span> (<span class="k">fun</span> (_, <span onmouseout="hideTip(event, 'fs40', 216)" onmouseover="showTip(event, 'fs40', 216)" class="i">e</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs43', 217)" onmouseover="showTip(event, 'fs43', 217)" class="i">snd</span> <span onmouseout="hideTip(event, 'fs40', 218)" onmouseover="showTip(event, 'fs40', 218)" class="i">e</span>) <span class="c">// only where the number was prime</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 219)" onmouseover="showTip(event, 'fs31', 219)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 220)" onmouseover="showTip(event, 'fs70', 220)" class="i">map</span> (<span class="k">fun</span> (_, <span onmouseout="hideTip(event, 'fs40', 221)" onmouseover="showTip(event, 'fs40', 221)" class="i">e</span>) <span class="k">-&gt;</span> 
+        {<span class="i">Time</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs56', 222)" onmouseover="showTip(event, 'fs56', 222)" class="i">DateTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs71', 223)" onmouseover="showTip(event, 'fs71', 223)" class="i">Now</span>; <span class="i">Prime</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs65', 224)" onmouseover="showTip(event, 'fs65', 224)" class="i">Some</span>(<span onmouseout="hideTip(event, 'fs72', 225)" onmouseover="showTip(event, 'fs72', 225)" class="i">fst</span> <span onmouseout="hideTip(event, 'fs40', 226)" onmouseover="showTip(event, 'fs40', 226)" class="i">e</span>); <span class="i">ID</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">p</span><span class="s">&quot;</span>})
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs73', 227)" onmouseover="showTip(event, 'fs73', 227)" class="i">reduced</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs69', 228)" onmouseover="showTip(event, 'fs69', 228)" class="i">pFound</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 229)" onmouseover="showTip(event, 'fs31', 229)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs74', 230)" onmouseover="showTip(event, 'fs74', 230)" class="i">scan</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs75', 231)" onmouseover="showTip(event, 'fs75', 231)" class="i">l</span> <span onmouseout="hideTip(event, 'fs76', 232)" onmouseover="showTip(event, 'fs76', 232)" class="i">c</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs76', 233)" onmouseover="showTip(event, 'fs76', 233)" class="i">c</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs75', 234)" onmouseover="showTip(event, 'fs75', 234)" class="i">l</span>) [] 
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 235)" onmouseover="showTip(event, 'fs31', 235)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 236)" onmouseover="showTip(event, 'fs70', 236)" class="i">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs77', 237)" onmouseover="showTip(event, 'fs77', 237)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs77', 238)" onmouseover="showTip(event, 'fs77', 238)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs78', 239)" onmouseover="showTip(event, 'fs78', 239)" class="i">Head</span>)</pre>
+</td>
+</tr>
+</table>
+
+<p>The interesting bit here is the reduced value which is derived via <code>Event.scan</code> to build a list of events. <code>Events.scan</code> is like reduce in that it takes as an argument a function that accepts an accumulator and the current item in the collection (or stream in this case). Each time <code>PrimeFound</code> fires <code>Event.scan</code> creates a new list with the new event as the head and all the previous events as the tail. We also created a record type <code>PrimeTime</code> to give the event arguments some structure.</p>
+
+<p>For the sake of this exercise we'll check the status of the list processing with a button click. When the button is clicked we want to see the most recent prime number found in the collection. The following code takes the click event from a button and maps it into an <code>Event</code> of type <code>PrimeTime</code> just like <code>reduced</code>!</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs79', 240)" onmouseover="showTip(event, 'fs79', 240)" class="i">checkStatusButton</span> <span class="o">=</span> <span class="k">new</span> <span class="i">Button</span>(<span onmouseout="hideTip(event, 'fs80', 241)" onmouseover="showTip(event, 'fs80', 241)" class="i">Text</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">CheckStatus</span><span class="s">&quot;</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs81', 242)" onmouseover="showTip(event, 'fs81', 242)" class="i">checkStatusClicked</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs79', 243)" onmouseover="showTip(event, 'fs79', 243)" class="i">checkStatusButton</span><span class="o">.</span><span class="i">Click</span> 
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 244)" onmouseover="showTip(event, 'fs31', 244)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 245)" onmouseover="showTip(event, 'fs70', 245)" class="i">map</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
+        {<span class="i">Time</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs56', 246)" onmouseover="showTip(event, 'fs56', 246)" class="i">DateTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs71', 247)" onmouseover="showTip(event, 'fs71', 247)" class="i">Now</span>; <span class="i">Prime</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs67', 248)" onmouseover="showTip(event, 'fs67', 248)" class="i">None</span>; <span class="i">ID</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>})</pre>
+</td>
+</tr>
+</table>
+
+<p><code>reduced</code> and <code>checkStatusClicked</code> are both of type <code>IEvent&lt;PrimeTime&gt;</code>. We can now combine these event streams together. Events will be added to this stream whenever the "Check Status" button is clicked, or a new prime number is found. After the two streams are merged it would be nice if events in the stream could be grouped together so that when the "Check status" click event fires it could be paired with the latest <code>PrimeFound</code> event. For each pair of events that contains both a <code>Click</code> and a <code>PrimeFound</code> we should extract the revelant data, filter out what we don't need and return a stream that will contain the latest <code>PrimeTime</code> event when the "Check Status" button is clicked. The following code does exactly that:</p>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs82', 249)" onmouseover="showTip(event, 'fs82', 249)" class="i">statusCheck</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs73', 250)" onmouseover="showTip(event, 'fs73', 250)" class="i">reduced</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 251)" onmouseover="showTip(event, 'fs31', 251)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs83', 252)" onmouseover="showTip(event, 'fs83', 252)" class="i">merge</span> <span class="i">csClicked</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 253)" onmouseover="showTip(event, 'fs31', 253)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs84', 254)" onmouseover="showTip(event, 'fs84', 254)" class="i">pairwise</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 255)" onmouseover="showTip(event, 'fs31', 255)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 256)" onmouseover="showTip(event, 'fs70', 256)" class="i">map</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs85', 257)" onmouseover="showTip(event, 'fs85', 257)" class="i">f</span>, <span onmouseout="hideTip(event, 'fs86', 258)" onmouseover="showTip(event, 'fs86', 258)" class="i">s</span>) <span class="k">-&gt;</span> { <span onmouseout="hideTip(event, 'fs86', 259)" onmouseover="showTip(event, 'fs86', 259)" class="i">s</span> <span class="k">with</span> <span class="i">Prime</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs85', 260)" onmouseover="showTip(event, 'fs85', 260)" class="i">f</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs57', 261)" onmouseover="showTip(event, 'fs57', 261)" class="i">Prime</span>})
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 262)" onmouseover="showTip(event, 'fs31', 262)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs42', 263)" onmouseover="showTip(event, 'fs42', 263)" class="i">filter</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs87', 264)" onmouseover="showTip(event, 'fs87', 264)" class="i">pt</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs87', 265)" onmouseover="showTip(event, 'fs87', 265)" class="i">pt</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs60', 266)" onmouseover="showTip(event, 'fs60', 266)" class="i">ID</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>)
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs31', 267)" onmouseover="showTip(event, 'fs31', 267)" class="i">Event</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 268)" onmouseover="showTip(event, 'fs44', 268)" class="i">add</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs62', 269)" onmouseover="showTip(event, 'fs62', 269)" class="i">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 270)" onmouseover="showTip(event, 'fs9', 270)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">Largest</span><span class="s"> </span><span class="s">prime</span><span class="s">:</span><span class="s"> </span><span class="s">%</span><span class="s">s</span><span class="s">&quot;</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs62', 271)" onmouseover="showTip(event, 'fs62', 271)" class="i">x</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs88', 272)" onmouseover="showTip(event, 'fs88', 272)" class="i">ToString</span>())</pre>
+</td>
+</tr>
+</table>
+
+<p>The <code>statusCheck</code> event stream is created by first merging the <code>reduced</code> stream with the <code>checkStatusClicked</code> stream. Events in this merged stream will be of type <code>PrimeTime</code> and will either have an <code>ID</code> of "c" or "p" depending on from where the event originated.</p>
+
+<p>After the two streams are combined a stream of pairs can be created by passing the merged stream to <code>Event.pairwise</code>. The "pairwised" stream contains IEvents of the type <code>PrimeTime * PrimeTime</code>. Each <code>PrimeTime</code> instance is from either the <code>PrimeFound</code> event or the <code>Click</code> event of the merged stream.</p>
+
+<p><code>Event.map</code> maps <code>IEvent&lt;PrimeTime * PrimeTime&gt;</code> to <code>IEvent&lt;PrimeTime&gt;</code> by copying the 2nd <code>PrimeTime</code> instance and replacing it's <code>Prime</code> member with the value from the 1st <code>PrimeTime</code> instance. This step is important because when we mapped the original <code>Click</code> event to an event stream of <code>IEvent&lt;PrimeTime&gt;</code> the value for <code>Prime</code> was set to <code>None</code>. While it's entirely possible that all of the numbers being processed are composite (e.g. not prime), we already know that the values coming from the <code>ClickEvent</code> are never prime so it's safe to replace them with what's coming back from the <code>reduced</code> version of the <code>PrimeFound</code> stream.</p>
+
+<p>Finally the Events generated by the <code>PrimeFound</code> event are filtered out. Because of the mapping done in the previous step the <code>Click</code> events in the stream have a value for <code>PrimeTime.Prime</code> that we can pass to the UI (in this case the console).</p>
+
+<h1>Conclusion</h1>
+
+<p>The basics of F# events are simple, but also extremely powerful. F# events are of type Event and implement IEvent which implements IObservable and IDelegateEvent and because of this can be mapped, filtered, and reduced allowing callers to add handlers to customized scenarios as needed. We can start expensive tasks asynchronsously and use events to check on the status of the work.</p>
+
+<h1>Resources</h1>
+
+<ol>
+<li><a href="http://fsharpforfunandprofit.com/posts/concurrency-async-and-parallel/">http://fsharpforfunandprofit.com/posts/concurrency-async-and-parallel/</a></li>
+<li><a href="http://dotnet.readthedocs.org/en/latest/async/async-fsharp.html">http://dotnet.readthedocs.org/en/latest/async/async-fsharp.html</a></li>
+<li><a href="http://fsharpforfunandprofit.com/posts/concurrency-reactive/">http://fsharpforfunandprofit.com/posts/concurrency-reactive/</a></li>
+</ol>
+
+<div class="tip" id="fs1">namespace System</div>
+<div class="tip" id="fs2">val timer1 : Timers.Timer<br /><br />Full name: fsharpeventsrxasync.timer1</div>
+<div class="tip" id="fs3">namespace System.Timers</div>
+<div class="tip" id="fs4">Multiple items<br />type Timer =<br />&#160;&#160;inherit Component<br />&#160;&#160;new : unit -&gt; Timer + 1 overload<br />&#160;&#160;member AutoReset : bool with get, set<br />&#160;&#160;member BeginInit : unit -&gt; unit<br />&#160;&#160;member Close : unit -&gt; unit<br />&#160;&#160;member Enabled : bool with get, set<br />&#160;&#160;member EndInit : unit -&gt; unit<br />&#160;&#160;member Interval : float with get, set<br />&#160;&#160;member Site : ISite with get, set<br />&#160;&#160;member Start : unit -&gt; unit<br />&#160;&#160;member Stop : unit -&gt; unit<br />&#160;&#160;...<br /><br />Full name: System.Timers.Timer<br /><br />--------------------<br />Timers.Timer() : unit<br />Timers.Timer(interval: float) : unit</div>
+<div class="tip" id="fs5">val timer2 : Timers.Timer<br /><br />Full name: fsharpeventsrxasync.timer2</div>
+<div class="tip" id="fs6">event Timers.Timer.Elapsed: IEvent&lt;Timers.ElapsedEventHandler,Timers.ElapsedEventArgs&gt;</div>
+<div class="tip" id="fs7">member IObservable.Add : callback:(&#39;T -&gt; unit) -&gt; unit</div>
+<div class="tip" id="fs8">val x : Timers.ElapsedEventArgs</div>
+<div class="tip" id="fs9">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
+<div class="tip" id="fs10">property Timers.ElapsedEventArgs.SignalTime: DateTime</div>
+<div class="tip" id="fs11">property DateTime.Second: int</div>
+<div class="tip" id="fs12">property DateTime.Millisecond: int</div>
+<div class="tip" id="fs13">val runTimer : t:Timers.Timer -&gt; s:int -&gt; unit<br /><br />Full name: fsharpeventsrxasync.runTimer</div>
+<div class="tip" id="fs14">val t : Timers.Timer</div>
+<div class="tip" id="fs15">val s : int</div>
+<div class="tip" id="fs16">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int<br /><br />--------------------<br />type int = int32<br /><br />Full name: Microsoft.FSharp.Core.int<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; = int<br /><br />Full name: Microsoft.FSharp.Core.int&lt;_&gt;</div>
+<div class="tip" id="fs17">Timers.Timer.Start() : unit</div>
+<div class="tip" id="fs18">namespace System.Threading</div>
+<div class="tip" id="fs19">Multiple items<br />type Thread =<br />&#160;&#160;inherit CriticalFinalizerObject<br />&#160;&#160;new : start:ThreadStart -&gt; Thread + 3 overloads<br />&#160;&#160;member Abort : unit -&gt; unit + 1 overload<br />&#160;&#160;member ApartmentState : ApartmentState with get, set<br />&#160;&#160;member CurrentCulture : CultureInfo with get, set<br />&#160;&#160;member CurrentUICulture : CultureInfo with get, set<br />&#160;&#160;member DisableComObjectEagerCleanup : unit -&gt; unit<br />&#160;&#160;member ExecutionContext : ExecutionContext<br />&#160;&#160;member GetApartmentState : unit -&gt; ApartmentState<br />&#160;&#160;member GetCompressedStack : unit -&gt; CompressedStack<br />&#160;&#160;member GetHashCode : unit -&gt; int<br />&#160;&#160;...<br /><br />Full name: System.Threading.Thread<br /><br />--------------------<br />Threading.Thread(start: Threading.ThreadStart) : unit<br />Threading.Thread(start: Threading.ParameterizedThreadStart) : unit<br />Threading.Thread(start: Threading.ThreadStart, maxStackSize: int) : unit<br />Threading.Thread(start: Threading.ParameterizedThreadStart, maxStackSize: int) : unit</div>
+<div class="tip" id="fs20">Threading.Thread.Sleep(timeout: TimeSpan) : unit<br />Threading.Thread.Sleep(millisecondsTimeout: int) : unit</div>
+<div class="tip" id="fs21">Timers.Timer.Stop() : unit</div>
+<div class="tip" id="fs22">val runTimerAsync : t:Timers.Timer -&gt; s:int -&gt; Async&lt;unit&gt;<br /><br />Full name: fsharpeventsrxasync.runTimerAsync</div>
+<div class="tip" id="fs23">val async : AsyncBuilder<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.async</div>
+<div class="tip" id="fs24">Multiple items<br />type Async<br />static member AsBeginEnd : computation:(&#39;Arg -&gt; Async&lt;&#39;T&gt;) -&gt; (&#39;Arg * AsyncCallback * obj -&gt; IAsyncResult) * (IAsyncResult -&gt; &#39;T) * (IAsyncResult -&gt; unit)<br />static member AwaitEvent : event:IEvent&lt;&#39;Del,&#39;T&gt; * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt; (requires delegate and &#39;Del :&gt; Delegate)<br />static member AwaitIAsyncResult : iar:IAsyncResult * ?millisecondsTimeout:int -&gt; Async&lt;bool&gt;<br />static member AwaitTask : task:Task&lt;&#39;T&gt; -&gt; Async&lt;&#39;T&gt;<br />static member AwaitWaitHandle : waitHandle:WaitHandle * ?millisecondsTimeout:int -&gt; Async&lt;bool&gt;<br />static member CancelDefaultToken : unit -&gt; unit<br />static member Catch : computation:Async&lt;&#39;T&gt; -&gt; Async&lt;Choice&lt;&#39;T,exn&gt;&gt;<br />static member FromBeginEnd : beginAction:(AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromBeginEnd : arg:&#39;Arg1 * beginAction:(&#39;Arg1 * AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromBeginEnd : arg1:&#39;Arg1 * arg2:&#39;Arg2 * beginAction:(&#39;Arg1 * &#39;Arg2 * AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromBeginEnd : arg1:&#39;Arg1 * arg2:&#39;Arg2 * arg3:&#39;Arg3 * beginAction:(&#39;Arg1 * &#39;Arg2 * &#39;Arg3 * AsyncCallback * obj -&gt; IAsyncResult) * endAction:(IAsyncResult -&gt; &#39;T) * ?cancelAction:(unit -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member FromContinuations : callback:((&#39;T -&gt; unit) * (exn -&gt; unit) * (OperationCanceledException -&gt; unit) -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member Ignore : computation:Async&lt;&#39;T&gt; -&gt; Async&lt;unit&gt;<br />static member OnCancel : interruption:(unit -&gt; unit) -&gt; Async&lt;IDisposable&gt;<br />static member Parallel : computations:seq&lt;Async&lt;&#39;T&gt;&gt; -&gt; Async&lt;&#39;T []&gt;<br />static member RunSynchronously : computation:Async&lt;&#39;T&gt; * ?timeout:int * ?cancellationToken:CancellationToken -&gt; &#39;T<br />static member Sleep : millisecondsDueTime:int -&gt; Async&lt;unit&gt;<br />static member Start : computation:Async&lt;unit&gt; * ?cancellationToken:CancellationToken -&gt; unit<br />static member StartAsTask : computation:Async&lt;&#39;T&gt; * ?taskCreationOptions:TaskCreationOptions * ?cancellationToken:CancellationToken -&gt; Task&lt;&#39;T&gt;<br />static member StartChild : computation:Async&lt;&#39;T&gt; * ?millisecondsTimeout:int -&gt; Async&lt;Async&lt;&#39;T&gt;&gt;<br />static member StartChildAsTask : computation:Async&lt;&#39;T&gt; * ?taskCreationOptions:TaskCreationOptions -&gt; Async&lt;Task&lt;&#39;T&gt;&gt;<br />static member StartImmediate : computation:Async&lt;unit&gt; * ?cancellationToken:CancellationToken -&gt; unit<br />static member StartWithContinuations : computation:Async&lt;&#39;T&gt; * continuation:(&#39;T -&gt; unit) * exceptionContinuation:(exn -&gt; unit) * cancellationContinuation:(OperationCanceledException -&gt; unit) * ?cancellationToken:CancellationToken -&gt; unit<br />static member SwitchToContext : syncContext:SynchronizationContext -&gt; Async&lt;unit&gt;<br />static member SwitchToNewThread : unit -&gt; Async&lt;unit&gt;<br />static member SwitchToThreadPool : unit -&gt; Async&lt;unit&gt;<br />static member TryCancelled : computation:Async&lt;&#39;T&gt; * compensation:(OperationCanceledException -&gt; unit) -&gt; Async&lt;&#39;T&gt;<br />static member CancellationToken : Async&lt;CancellationToken&gt;<br />static member DefaultCancellationToken : CancellationToken<br /><br />Full name: Microsoft.FSharp.Control.Async<br /><br />--------------------<br />type Async&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Control.Async&lt;_&gt;</div>
+<div class="tip" id="fs25">static member Async.Sleep : millisecondsDueTime:int -&gt; Async&lt;unit&gt;</div>
+<div class="tip" id="fs26">static member Async.Parallel : computations:seq&lt;Async&lt;&#39;T&gt;&gt; -&gt; Async&lt;&#39;T []&gt;</div>
+<div class="tip" id="fs27">static member Async.RunSynchronously : computation:Async&lt;&#39;T&gt; * ?timeout:int * ?cancellationToken:Threading.CancellationToken -&gt; &#39;T</div>
+<div class="tip" id="fs28">static member Async.StartWithContinuations : computation:Async&lt;&#39;T&gt; * continuation:(&#39;T -&gt; unit) * exceptionContinuation:(exn -&gt; unit) * cancellationContinuation:(OperationCanceledException -&gt; unit) * ?cancellationToken:Threading.CancellationToken -&gt; unit</div>
+<div class="tip" id="fs29">Multiple items<br />type PrimeFinder =<br />&#160;&#160;new : unit -&gt; PrimeFinder<br />&#160;&#160;member IsPrime : n:int64 -&gt; unit<br />&#160;&#160;member PrimeFound : IEvent&lt;PrimeFinder * (int64 * bool)&gt;<br /><br />Full name: fsharpeventsrxasync.PrimeFinder<br /><br />--------------------<br />new : unit -&gt; PrimeFinder</div>
+<div class="tip" id="fs30">val primeFoundEvent : Event&lt;PrimeFinder * (int64 * bool)&gt;</div>
+<div class="tip" id="fs31">Multiple items<br />module Event<br /><br />from Microsoft.FSharp.Control<br /><br />--------------------<br />type Event&lt;&#39;T&gt; =<br />&#160;&#160;new : unit -&gt; Event&lt;&#39;T&gt;<br />&#160;&#160;member Trigger : arg:&#39;T -&gt; unit<br />&#160;&#160;member Publish : IEvent&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Control.Event&lt;_&gt;<br /><br />--------------------<br />type Event&lt;&#39;Delegate,&#39;Args (requires delegate and &#39;Delegate :&gt; Delegate)&gt; =<br />&#160;&#160;new : unit -&gt; Event&lt;&#39;Delegate,&#39;Args&gt;<br />&#160;&#160;member Trigger : sender:obj * args:&#39;Args -&gt; unit<br />&#160;&#160;member Publish : IEvent&lt;&#39;Delegate,&#39;Args&gt;<br /><br />Full name: Microsoft.FSharp.Control.Event&lt;_,_&gt;<br /><br />--------------------<br />new : unit -&gt; Event&lt;&#39;T&gt;<br /><br />--------------------<br />new : unit -&gt; Event&lt;&#39;Delegate,&#39;Args&gt;</div>
+<div class="tip" id="fs32">val x : PrimeFinder</div>
+<div class="tip" id="fs33">member PrimeFinder.PrimeFound : IEvent&lt;PrimeFinder * (int64 * bool)&gt;<br /><br />Full name: fsharpeventsrxasync.PrimeFinder.PrimeFound</div>
+<div class="tip" id="fs34">property Event.Publish: IEvent&lt;PrimeFinder * (int64 * bool)&gt;</div>
+<div class="tip" id="fs35">member PrimeFinder.IsPrime : n:int64 -&gt; unit<br /><br />Full name: fsharpeventsrxasync.PrimeFinder.IsPrime</div>
+<div class="tip" id="fs36">val n : int64</div>
+<div class="tip" id="fs37">member Event.Trigger : arg:&#39;T -&gt; unit</div>
+<div class="tip" id="fs38">val primeFinder : PrimeFinder<br /><br />Full name: fsharpeventsrxasync.primeFinder</div>
+<div class="tip" id="fs39">property PrimeFinder.PrimeFound: IEvent&lt;PrimeFinder * (int64 * bool)&gt;</div>
+<div class="tip" id="fs40">val e : int64 * bool</div>
+<div class="tip" id="fs41">member PrimeFinder.IsPrime : n:int64 -&gt; unit</div>
+<div class="tip" id="fs42">val filter : predicate:(&#39;T -&gt; bool) -&gt; sourceEvent:IEvent&lt;&#39;Del,&#39;T&gt; -&gt; IEvent&lt;&#39;T&gt; (requires delegate and &#39;Del :&gt; Delegate)<br /><br />Full name: Microsoft.FSharp.Control.Event.filter</div>
+<div class="tip" id="fs43">val snd : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T2<br /><br />Full name: Microsoft.FSharp.Core.Operators.snd</div>
+<div class="tip" id="fs44">val add : callback:(&#39;T -&gt; unit) -&gt; sourceEvent:IEvent&lt;&#39;Del,&#39;T&gt; -&gt; unit (requires delegate and &#39;Del :&gt; Delegate)<br /><br />Full name: Microsoft.FSharp.Control.Event.add</div>
+<div class="tip" id="fs45">val findPrimesAsync : numbers:&#39;a -&gt; primeTester:(&#39;b -&gt; unit) -&gt; Async&lt;unit&gt;<br /><br />Full name: fsharpeventsrxasync.findPrimesAsync</div>
+<div class="tip" id="fs46">val numbers : &#39;a</div>
+<div class="tip" id="fs47">val primeTester : (&#39;a -&gt; unit)</div>
+<div class="tip" id="fs48">val findPrimes : (&#39;a list -&gt; Async&lt;unit&gt;)</div>
+<div class="tip" id="fs49">val n : &#39;a list</div>
+<div class="tip" id="fs50">val h : &#39;a</div>
+<div class="tip" id="fs51">val t : &#39;a list</div>
+<div class="tip" id="fs52">static member Async.SwitchToNewThread : unit -&gt; Async&lt;unit&gt;</div>
+<div class="tip" id="fs53">static member Async.SwitchToThreadPool : unit -&gt; Async&lt;unit&gt;</div>
+<div class="tip" id="fs54">type PrimeTime =<br />&#160;&#160;{Time: DateTime;<br />&#160;&#160;&#160;Prime: int64 option;<br />&#160;&#160;&#160;ID: string;}<br />&#160;&#160;override ToString : unit -&gt; string<br /><br />Full name: fsharpeventsrxasync.PrimeTime</div>
+<div class="tip" id="fs55">PrimeTime.Time: DateTime</div>
+<div class="tip" id="fs56">Multiple items<br />type DateTime =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;new : ticks:int64 -&gt; DateTime + 10 overloads<br />&#160;&#160;&#160;&#160;member Add : value:TimeSpan -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddDays : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddHours : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMilliseconds : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMinutes : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMonths : months:int -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddSeconds : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddTicks : value:int64 -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddYears : value:int -&gt; DateTime<br />&#160;&#160;&#160;&#160;...<br />&#160;&#160;end<br /><br />Full name: System.DateTime<br /><br />--------------------<br />DateTime()<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(ticks: int64) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(ticks: int64, kind: DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, calendar: Globalization.Calendar) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, kind: DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, calendar: Globalization.Calendar) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int, kind: DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
+<div class="tip" id="fs57">PrimeTime.Prime: int64 option</div>
+<div class="tip" id="fs58">Multiple items<br />val int64 : value:&#39;T -&gt; int64 (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int64<br /><br />--------------------<br />type int64 = Int64<br /><br />Full name: Microsoft.FSharp.Core.int64<br /><br />--------------------<br />type int64&lt;&#39;Measure&gt; = int64<br /><br />Full name: Microsoft.FSharp.Core.int64&lt;_&gt;</div>
+<div class="tip" id="fs59">type &#39;T option = Option&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Core.option&lt;_&gt;</div>
+<div class="tip" id="fs60">PrimeTime.ID: string</div>
+<div class="tip" id="fs61">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs62">val x : PrimeTime</div>
+<div class="tip" id="fs63">override PrimeTime.ToString : unit -&gt; string<br /><br />Full name: fsharpeventsrxasync.PrimeTime.ToString</div>
+<div class="tip" id="fs64">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
+<div class="tip" id="fs65">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs66">val e : int64</div>
+<div class="tip" id="fs67">union case Option.None: Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs68">DateTime.ToLongTimeString() : string</div>
+<div class="tip" id="fs69">val pFound : IEvent&lt;PrimeTime&gt;<br /><br />Full name: fsharpeventsrxasync.pFound</div>
+<div class="tip" id="fs70">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; sourceEvent:IEvent&lt;&#39;Del,&#39;T&gt; -&gt; IEvent&lt;&#39;U&gt; (requires delegate and &#39;Del :&gt; Delegate)<br /><br />Full name: Microsoft.FSharp.Control.Event.map</div>
+<div class="tip" id="fs71">property DateTime.Now: DateTime</div>
+<div class="tip" id="fs72">val fst : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T1<br /><br />Full name: Microsoft.FSharp.Core.Operators.fst</div>
+<div class="tip" id="fs73">val reduced : IEvent&lt;PrimeTime&gt;<br /><br />Full name: fsharpeventsrxasync.reduced</div>
+<div class="tip" id="fs74">val scan : collector:(&#39;U -&gt; &#39;T -&gt; &#39;U) -&gt; state:&#39;U -&gt; sourceEvent:IEvent&lt;&#39;Del,&#39;T&gt; -&gt; IEvent&lt;&#39;U&gt; (requires delegate and &#39;Del :&gt; Delegate)<br /><br />Full name: Microsoft.FSharp.Control.Event.scan</div>
+<div class="tip" id="fs75">val l : PrimeTime list</div>
+<div class="tip" id="fs76">val c : PrimeTime</div>
+<div class="tip" id="fs77">val x : PrimeTime list</div>
+<div class="tip" id="fs78">property List.Head: PrimeTime</div>
+<div class="tip" id="fs79">val checkStatusButton : obj<br /><br />Full name: fsharpeventsrxasync.checkStatusButton</div>
+<div class="tip" id="fs80">namespace System.Text</div>
+<div class="tip" id="fs81">val checkStatusClicked : IEvent&lt;PrimeTime&gt;<br /><br />Full name: fsharpeventsrxasync.checkStatusClicked</div>
+<div class="tip" id="fs82">val statusCheck : unit<br /><br />Full name: fsharpeventsrxasync.statusCheck</div>
+<div class="tip" id="fs83">val merge : event1:IEvent&lt;&#39;Del1,&#39;T&gt; -&gt; event2:IEvent&lt;&#39;Del2,&#39;T&gt; -&gt; IEvent&lt;&#39;T&gt; (requires delegate and &#39;Del1 :&gt; Delegate and delegate and &#39;Del2 :&gt; Delegate)<br /><br />Full name: Microsoft.FSharp.Control.Event.merge</div>
+<div class="tip" id="fs84">val pairwise : sourceEvent:IEvent&lt;&#39;Del,&#39;T&gt; -&gt; IEvent&lt;&#39;T * &#39;T&gt; (requires delegate and &#39;Del :&gt; Delegate)<br /><br />Full name: Microsoft.FSharp.Control.Event.pairwise</div>
+<div class="tip" id="fs85">val f : PrimeTime</div>
+<div class="tip" id="fs86">val s : PrimeTime</div>
+<div class="tip" id="fs87">val pt : PrimeTime</div>
+<div class="tip" id="fs88">override PrimeTime.ToString : unit -&gt; string</div>
+
+        </div>
+        <footer>
+            <hr/>
+            <p>Powered by <a href="https://twitter.com/mattdrivendev">MattDrivenDev's</a>&nbsp;<a href="https://github.com/fsprojects/FsBlog">FsBlog</a></p>
+            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/dbtek/dbyll">dbtek</a></small></p>
+            <p>
+                &copy; 2015
+            </p>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
