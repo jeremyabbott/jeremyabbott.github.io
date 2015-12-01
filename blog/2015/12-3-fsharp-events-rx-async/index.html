@@ -127,7 +127,7 @@
 
 <p>This is my contribution to the <a href="https://sergeytihon.wordpress.com/2015/10/25/f-advent-calendar-in-english-2015/">2015 F# Advent Calendar</a>. I hope you like it!</p>
 
-<p>The majority of my code-slinging career has focused on full stack web development which hasn't necessitated a lot of complex event-driven programming, unless you include the unholy event model in Web Forms. Even in the cases where I do need to work with events, it's usually abstracted behind a library or framework (shout out to Knockout). Since I've been doing more mobile development working with events has become more relevant which inspired me to dig into them and write this post. First we'll look very briefly at async programming in F# and then look at the F# programming model for events. Then we'll bring it all together in an applicable, if a little contrived, example.</p>
+<p>The majority of my code-slinging career has focused on full stack web development which hasn't necessitated a lot of complex event-driven programming, unless you include the unholy event model in Web Forms. Even in the cases where I do need to work with events, it's usually abstracted behind a library or framework (shout out to Knockout). Since I've been doing more mobile development working with events has become more relevant which inspired me to dig into them and write this post. First, we'll look very briefly at async programming in F#, and then look at the F# programming model for events. Then we'll bring it all together in an applicable, if a little contrived, example.</p>
 
 <h1>F# Async Workflows</h1>
 
@@ -185,7 +185,7 @@
 </tr>
 </table>
 
-<p>While the above code is contrived it's not hard to imagine each timer representing an HTTP request to a web API to get data that our app needs before it can be useful. As it stands we have to wait 5 seconds for these tasks to finish before the app startup completes.</p>
+<p>While the above code is contrived, it's not hard to imagine each timer representing an HTTP request to a web API to get data that our app needs before it can be useful. As it stands we have to wait 5 seconds for these tasks to finish before the app startup completes.</p>
 
 <p>Now here's the same code using F# Async Workflows:</p>
 
@@ -343,7 +343,7 @@
 </tr>
 </table>
 
-<p>Inside of the <code>PrimeFinder</code> type the event <code>primeFoundEvent</code> is defined. It's correpsonding type isn't defined explicitly, notice the wildcard "<code>_</code>" passed as the type to <code>Event&lt;_&gt;</code>, which means the compiler will figure out the event's type based on how it's used. The member <code>PrimeFound</code> is of type <code>IEvent&lt;PrimeFinder * obj&gt;</code>, and is what callers will wire handlers to.</p>
+<p><code>PrimeFinder</code> is a helper type that exposes a single method, <code>IsPrime</code>, and an event, <code>PrimeFound</code>, that we can add handlers to. <code>primeFoundEvent</code> is a local value of type <code>Event&lt;_&gt;</code>. Notice that the type passed to <code>Event</code> was not defined explicitly. By using the wildcard "<code>_</code>" syntax we're telling the compiler to figure out the event type based on it's usage. <code>PrimeFinder</code> exposes <code>primeFoundEvent</code> event as <code>PrimeFound</code> via the <code>Publish</code> method which returns an object of type <code>IEvent&lt;PrimeFinder * obj&gt;</code>. Finally, <code>IsPrime</code> calls the <code>Trigger</code> method on <code>primeFoundEvent</code>. The arguments passed to <code>Trigger</code> are the self-identifier for the type, <code>x</code>, and a tuple of type <code>int64 * bool</code>. Said another way, when we call the <code>Trigger</code> method we're passing it the "sender" and "eventArgs".</p>
 
 <p>The member <code>IsPrime</code> is responsible for triggering the <code>primeFoundEvent</code>. The handler wired up to <code>PrimeFound</code> is called with a tuple, <code>Sender * Args</code>, passed in.</p>
 
@@ -353,7 +353,7 @@
 
 <p>So maybe we only want the event to call our handler when a number is prime? We could easily update our handler to only print when a number is prime, but what if we could separate out the responsibility of handling the event from determining whether or not we <em>should</em> handle the event?</p>
 
-<p>The following sample take the PrimeFound event stream and returns only events whose argument is prime. The same handler used previously is then added to the filtered stream. The logic for determining <em>when</em> to handle an event is now separate from the logic describing <em>how</em> to handle an event.</p>
+<p>The following sample creates an event stream from <code>PrimeFound</code> and returns only events whose argument is prime. The previous handler is then added to the filtered stream. The logic for determining <em>when</em> to handle an event is now separate from the logic describing <em>how</em> to handle an event.</p>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip">
 <span class="l"> 1: </span>
@@ -531,11 +531,11 @@
 
 <p><code>Event.map</code> maps <code>IEvent&lt;PrimeTime * PrimeTime&gt;</code> to <code>IEvent&lt;PrimeTime&gt;</code> by copying the 2nd <code>PrimeTime</code> instance and replacing it's <code>Prime</code> member with the value from the 1st <code>PrimeTime</code> instance. This step is important because when we mapped the original <code>Click</code> event to an event stream of <code>IEvent&lt;PrimeTime&gt;</code> the value for <code>Prime</code> was set to <code>None</code>. While it's entirely possible that all of the numbers being processed are composite (e.g. not prime), we already know that the values coming from the <code>ClickEvent</code> are never prime so it's safe to replace them with what's coming back from the <code>reduced</code> version of the <code>PrimeFound</code> stream.</p>
 
-<p>Finally the Events generated by the <code>PrimeFound</code> event are filtered out. Because of the mapping done in the previous step the <code>Click</code> events in the stream have a value for <code>PrimeTime.Prime</code> that we can pass to the UI (in this case the console).</p>
+<p>Finally, the Events generated by the <code>PrimeFound</code> event are filtered out. Because of the mapping done in the previous step the <code>Click</code> events in the stream have a value for <code>PrimeTime.Prime</code> that we can pass to the UI (in this case the console).</p>
 
 <h1>Conclusion</h1>
 
-<p>The basics of F# events are simple, but also extremely powerful. F# events are of type Event and implement IEvent which implements IObservable and IDelegateEvent and because of this can be mapped, filtered, and reduced allowing callers to add handlers to customized scenarios as needed. We can start expensive tasks asynchronsously and use events to check on the status of the work.</p>
+<p>The basics of F# events are simple but also extremely powerful. F# events are of type Event and implement IEvent which implements <code>IObservable</code> and <code>IDelegateEvent</code>. Because of this <code>IEvent</code> can be mapped, filtered, and reduced which allows consumers to add handlers for highly specialized workflows. We can start expensive tasks asynchronsously and use events to check on the status of the work.</p>
 
 <h1>Resources</h1>
 
