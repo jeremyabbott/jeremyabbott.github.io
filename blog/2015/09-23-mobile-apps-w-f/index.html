@@ -126,27 +126,16 @@
 
 
 <h2>Background</h2>
-
 <p>I'm in the process of writing an iOS app for the <a href="http://nlglff.org">North Louisiana Gay &amp; Lesbian Film Festival presented by PACE</a>. It <em>should</em> already be shipped and "done", but that's a story for another blog post.</p>
-
 <p>I knew I was going to write the app using Xamarin. At first I considered using Xamarin.Forms, but since I don't have an Android device to test with I decided to use Xamarin.iOS so that I could write the app in F#. This isn't to say that you can't write a Xamarin.Forms app using F#, but the tooling isn't quite there yet so I decided to go with what Xamarin officially supports.</p>
-
 <p>I chose Xamarin and .NET over Objective-C because my experience with Objective-C is limited to an 8 hour course I took on it before Automatic Reference Counting was a thing. Basically I didn't want to deal with the overhead of an unfamiliar framework, <em>and</em> an unfamiliar language, <em>and</em> never having written a native mobile app before in general.</p>
-
 <p>What follows are some notes on F# features that really helped me be productive throughout this project.</p>
-
 <h2>Type Providers</h2>
-
 <p>One of the key productivity features of F# is <a href="https://msdn.microsoft.com/en-us/library/hh156509.aspx">Type Providers</a>. Type providers can take a data source and generate code based on that data. In my case the data I cared about was JSON returned from a Web API.</p>
-
 <p>To get up and running with the JSON Provider you need to add the <a href="http://fsharp.github.io/FSharp.Data/">Fsharp.Data</a> NuGet package to your project. In Visual Studio you'll get a warning after the package is successfully installed. The warning serves to make sure you understand that a type provider is a code generation tool and that it is going to execute and generate code based on a data source that it has no control over. As scary as that sounds, it's really okay, so click the Enable button.</p>
-
 <p><img src="/images/typeprovidersecuritywarning.png" alt="Visual Studio Type Provider Security Warning" title="Visual Studio Type Provider Security Warning" /></p>
-
 <p>Now, using the GitHub API as an example, I can write something like the following...</p>
-
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l"> 1: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
 <span class="l"> 4: </span>
@@ -157,107 +146,86 @@
 <span class="l"> 9: </span>
 <span class="l">10: </span>
 <span class="l">11: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="k">open</span> <span class="i">FSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">Data</span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">FSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Data</span>
+    
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="t">Gist</span> <span class="o">=</span> <span class="i">JsonProvider</span><span class="o">&lt;</span><span class="s">&quot;https://api.github.com/gists&quot;</span>, <span class="i">SampleIsList</span><span class="o">=</span><span class="k">true</span><span class="o">&gt;</span>
 
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Gist</span> <span class="o">=</span> <span class="i">JsonProvider</span><span class="o">&lt;</span><span class="s">&quot;</span><span class="s">https</span><span class="s">:</span><span class="s">/</span><span class="s">/</span><span class="s">api</span><span class="s">.</span><span class="s">github</span><span class="s">.</span><span class="s">com</span><span class="s">/</span><span class="s">gists</span><span class="s">&quot;</span>, <span class="i">SampleIsList</span><span class="o">=</span><span class="k">true</span><span class="o">&gt;</span>
-
-[&lt;<span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">EntryPoint</span>&gt;]
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">main</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">argv</span> <span class="o">=</span> 
-    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">gists</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 7)" onmouseover="showTip(event, 'fs2', 7)" class="i">Gist</span><span class="o">.</span><span class="i">GetSamples</span>()
-    <span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">A</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs6', 9)" onmouseover="showTip(event, 'fs6', 9)" class="i">gists</span> 
-                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 10)" onmouseover="showTip(event, 'fs8', 10)" class="i">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 11)" onmouseover="showTip(event, 'fs9', 11)" class="i">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="i">g</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="i">g</span><span class="o">.</span><span class="i">Id</span>)
-                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 14)" onmouseover="showTip(event, 'fs8', 14)" class="i">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 15)" onmouseover="showTip(event, 'fs11', 15)" class="i">reduce</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="i">a</span> <span onmouseout="hideTip(event, 'fs13', 17)" onmouseover="showTip(event, 'fs13', 17)" class="i">e</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="i">sprintf</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">s</span><span class="s">\n</span><span class="s">%</span><span class="s">s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs12', 19)" onmouseover="showTip(event, 'fs12', 19)" class="i">a</span> <span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="i">e</span>))
-    <span class="n">0</span> <span class="c">// return an integer exit code</span></pre>
-</td>
+[&lt;<span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="t">EntryPoint</span>&gt;]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="f">main</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">argv</span> <span class="o">=</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="i">gists</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 8)" onmouseover="showTip(event, 'fs3', 8)" class="i">Gist</span><span class="o">.</span><span class="i">GetSamples</span>()
+    <span onmouseout="hideTip(event, 'fs8', 9)" onmouseover="showTip(event, 'fs8', 9)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%A</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs7', 10)" onmouseover="showTip(event, 'fs7', 10)" class="i">gists</span> 
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs9', 11)" onmouseover="showTip(event, 'fs9', 11)" class="t">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="f">map</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs11', 13)" onmouseover="showTip(event, 'fs11', 13)" class="i">g</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="i">g</span><span class="o">.</span><span class="i">Id</span>)
+                  <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs9', 15)" onmouseover="showTip(event, 'fs9', 15)" class="t">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="f">reduce</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs13', 17)" onmouseover="showTip(event, 'fs13', 17)" class="i">a</span> <span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="i">e</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs15', 19)" onmouseover="showTip(event, 'fs15', 19)" class="f">sprintf</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s"></span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="i">a</span> <span onmouseout="hideTip(event, 'fs14', 21)" onmouseover="showTip(event, 'fs14', 21)" class="i">e</span>))
+    <span class="n">0</span> <span class="c">// return an integer exit code</span>
+</code></pre></td>
 </tr>
 </table>
-
 <p>Thanks to the type provider I can now code against a strongly typed object that I didn't have to write. The JsonProvider uses the structure of the JSON response to create the type. Not only does the type provider give me static types, but I can also write queries against any end point whose structure matches the sample passed to the provider. This means I get code generation and simple HTTP operations!</p>
-
 <p>One caveat to using Type Providers against Web APIs is that they do not support OAuth (yet).</p>
-
 <h2>Custom Operators and Auto Layout</h2>
-
 <p>F# gives you the ability to create custom operators and/or overload existing operators. This can be used in very interesting ways. Frank A. Krueger (<a href="https://twitter.com/praeclarum">@praeclarum</a>), <a href="https://gist.github.com/praeclarum/c9e2d1a0f1089cb4025a">has an awesome gist on GitHub</a> that allows you to write <a href="https://developer.apple.com/library/prerelease/ios/documentation/UserExperience/Conceptual/AutolayoutPG/AnatomyofaConstraint.html#//apple_ref/doc/uid/TP40010853-CH9-SW1">auto layout constraints</a> in a very terse yet easy to understand fashion. For reference an auto layout constraint is a linear equation of the form y = mx + b where y is the attribte of one view, m is the attribute of another view, x is a multiplier, and b is a constant.</p>
-
 <p>A really common use case (at least for me) was needing to center a subview inside its superview. In Auto Layout terms this amounts to 2 equations:</p>
-
 <ol>
-<li>subview.CenterX = superview.CenterX * 1 + 0
+<li>
+subview.CenterX = superview.CenterX * 1 + 0
 <ul>
 <li>y = subview.CenterX</li>
 <li>m = superview.CenterX</li>
 <li>x = 1</li>
 <li>b = 0</li>
-</ul></li>
-<li>subview.CenterY - superview.CenterY * 1 + 0
+</ul>
+</li>
+<li>
+subview.CenterY - superview.CenterY * 1 + 0
 <ul>
 <li>y = subview.CenterY</li>
 <li>m = superview.CenterY</li>
 <li>x = 1</li>
 <li>b = 0</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-
 <p>The two equations state that we want the subview's center X and Y coordinates to be equal to the superview's center X and Y coordinates.</p>
-
 <p>Without using the custom operators provided by @praeclarum, the code is pretty verbose:</p>
-
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
 <span class="l">4: </span>
 <span class="l">5: </span>
 <span class="l">6: </span>
 <span class="l">7: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="i">superview</span><span class="o">.</span><span class="i">AddConstraints</span> 
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">superview</span><span class="o">.</span><span class="i">AddConstraints</span> 
     [|
         <span class="i">NSLayoutConstraint</span><span class="o">.</span><span class="i">Create</span>(<span class="i">subview</span>, <span class="i">NSLayoutAttribute</span><span class="o">.</span><span class="i">CenterX</span>, <span class="i">NSLayoutRelation</span><span class="o">.</span><span class="i">Equal</span>,
             <span class="i">superview</span>, <span class="i">NSLayoutAttribute</span><span class="o">.</span><span class="i">Equal</span>, <span class="i">nfloat</span> <span class="n">1.</span>, <span class="i">nfloat</span> <span class="n">0.0</span>)
         <span class="i">NSLayoutConstraint</span><span class="o">.</span><span class="i">Create</span>(<span class="i">subview</span>, <span class="i">NSLayoutAttribute</span><span class="o">.</span><span class="i">CenterY</span>, <span class="i">NSLayoutRelation</span><span class="o">.</span><span class="i">Equal</span>,
             <span class="i">superview</span>, <span class="i">NSLayoutAttribute</span><span class="o">.</span><span class="i">Equal</span>, <span class="i">nfloat</span> <span class="n">1.</span>, <span class="i">nfloat</span> <span class="n">0.0</span>)
-    |]</pre>
-</td>
+    |]
+</code></pre></td>
 </tr>
 </table>
-
 <p>Using @praeclarum's Auto Layout code:</p>
-
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
 <span class="l">4: </span>
 <span class="l">5: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="i">superview</span><span class="o">.</span><span class="i">AddConstraints</span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">superview</span><span class="o">.</span><span class="i">AddConstraints</span>
     [|
         <span class="i">subview</span><span class="o">.</span><span class="i">LayoutCenterX</span> <span class="o">==</span> <span class="i">superview</span><span class="o">.</span><span class="i">LayoutCenterX</span>
         <span class="i">subview</span><span class="o">.</span><span class="i">LayoutCenterY</span> <span class="o">==</span> <span class="i">superview</span><span class="o">.</span><span class="i">LayoutCenterY</span>
-    |]</pre>
-</td>
+    |]
+</code></pre></td>
 </tr>
 </table>
-
 <p>Each version has the same number of lines of code, but in the second version its MUCH easier to reason about the relationship between the subview and superview.</p>
-
 <h2>Immutability and Memoization</h2>
-
 <p><a href="https://en.wikipedia.org/wiki/Memoization">From Wikipedia</a>: In computing, memoization is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.</p>
-
 <p>Said another way memoization is a form of  caching. We store the result of a function call so that if the function is called again we can return the result without doing the calculation. Immutability is important to this because if your function happens to depend on the state of a value outside the scope of the function the memoized result becomes invalid if/when that external value changes. Fortunately for us F# values are immutable by default so we can be confident that if we memoize something, the memoized result won't become stale. <em>Obviously if the calculation the function is performing is derived from an external source, like a Web API call, the "freshness" of the memoized result is more subjective.</em></p>
-
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
 <span class="l">4: </span>
@@ -266,73 +234,61 @@
 <span class="l">7: </span>
 <span class="l">8: </span>
 <span class="l">9: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 21)" onmouseover="showTip(event, 'fs15', 21)" class="i">memoize</span> <span onmouseout="hideTip(event, 'fs16', 22)" onmouseover="showTip(event, 'fs16', 22)" class="i">f</span> <span class="o">=</span>
-    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="i">cache</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs18', 24)" onmouseover="showTip(event, 'fs18', 24)" class="i">ref</span> <span onmouseout="hideTip(event, 'fs19', 25)" onmouseover="showTip(event, 'fs19', 25)" class="i">Map</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs20', 26)" onmouseover="showTip(event, 'fs20', 26)" class="i">empty</span>
-    <span class="k">fun</span> <span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="i">x</span> <span class="k">-&gt;</span>
-        <span class="k">match</span> (<span class="o">!</span><span onmouseout="hideTip(event, 'fs17', 28)" onmouseover="showTip(event, 'fs17', 28)" class="i">cache</span>)<span class="o">.</span><span class="i">TryFind</span>(<span onmouseout="hideTip(event, 'fs21', 29)" onmouseover="showTip(event, 'fs21', 29)" class="i">x</span>) <span class="k">with</span>
-        | <span onmouseout="hideTip(event, 'fs22', 30)" onmouseover="showTip(event, 'fs22', 30)" class="i">Some</span> <span onmouseout="hideTip(event, 'fs23', 31)" onmouseover="showTip(event, 'fs23', 31)" class="i">res</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs23', 32)" onmouseover="showTip(event, 'fs23', 32)" class="i">res</span>
-        | <span onmouseout="hideTip(event, 'fs24', 33)" onmouseover="showTip(event, 'fs24', 33)" class="i">None</span> <span class="k">-&gt;</span>
-            <span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 34)" onmouseover="showTip(event, 'fs23', 34)" class="i">res</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs16', 35)" onmouseover="showTip(event, 'fs16', 35)" class="i">f</span> <span onmouseout="hideTip(event, 'fs21', 36)" onmouseover="showTip(event, 'fs21', 36)" class="i">x</span>
-            <span onmouseout="hideTip(event, 'fs17', 37)" onmouseover="showTip(event, 'fs17', 37)" class="i">cache</span> <span class="o">:=</span> (<span class="o">!</span><span onmouseout="hideTip(event, 'fs17', 38)" onmouseover="showTip(event, 'fs17', 38)" class="i">cache</span>)<span class="o">.</span><span class="i">Add</span>(<span onmouseout="hideTip(event, 'fs21', 39)" onmouseover="showTip(event, 'fs21', 39)" class="i">x</span>,<span onmouseout="hideTip(event, 'fs23', 40)" onmouseover="showTip(event, 'fs23', 40)" class="i">res</span>)
-            <span onmouseout="hideTip(event, 'fs23', 41)" onmouseover="showTip(event, 'fs23', 41)" class="i">res</span></pre>
-</td>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 22)" onmouseover="showTip(event, 'fs16', 22)" class="f">memoize</span> <span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="f">f</span> <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 24)" onmouseover="showTip(event, 'fs18', 24)" class="v">cache</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs19', 25)" onmouseover="showTip(event, 'fs19', 25)" class="f">ref</span> <span onmouseout="hideTip(event, 'fs20', 26)" onmouseover="showTip(event, 'fs20', 26)" class="t">Map</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="i">empty</span>
+    <span class="k">fun</span> <span onmouseout="hideTip(event, 'fs22', 28)" onmouseover="showTip(event, 'fs22', 28)" class="i">x</span> <span class="k">-&gt;</span>
+        <span class="k">match</span> (<span class="o">!</span><span onmouseout="hideTip(event, 'fs18', 29)" onmouseover="showTip(event, 'fs18', 29)" class="v">cache</span>)<span class="o">.</span><span class="f">TryFind</span>(<span onmouseout="hideTip(event, 'fs22', 30)" onmouseover="showTip(event, 'fs22', 30)" class="i">x</span>) <span class="k">with</span>
+        | <span onmouseout="hideTip(event, 'fs23', 31)" onmouseover="showTip(event, 'fs23', 31)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs24', 32)" onmouseover="showTip(event, 'fs24', 32)" class="i">res</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs24', 33)" onmouseover="showTip(event, 'fs24', 33)" class="i">res</span>
+        | <span onmouseout="hideTip(event, 'fs25', 34)" onmouseover="showTip(event, 'fs25', 34)" class="p">None</span> <span class="k">-&gt;</span>
+            <span class="k">let</span> <span onmouseout="hideTip(event, 'fs24', 35)" onmouseover="showTip(event, 'fs24', 35)" class="i">res</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs17', 36)" onmouseover="showTip(event, 'fs17', 36)" class="f">f</span> <span onmouseout="hideTip(event, 'fs22', 37)" onmouseover="showTip(event, 'fs22', 37)" class="i">x</span>
+            <span onmouseout="hideTip(event, 'fs18', 38)" onmouseover="showTip(event, 'fs18', 38)" class="v">cache</span> <span class="o">:=</span> (<span class="o">!</span><span onmouseout="hideTip(event, 'fs18', 39)" onmouseover="showTip(event, 'fs18', 39)" class="v">cache</span>)<span class="o">.</span><span class="f">Add</span>(<span onmouseout="hideTip(event, 'fs22', 40)" onmouseover="showTip(event, 'fs22', 40)" class="i">x</span>,<span onmouseout="hideTip(event, 'fs24', 41)" onmouseover="showTip(event, 'fs24', 41)" class="i">res</span>)
+            <span onmouseout="hideTip(event, 'fs24', 42)" onmouseover="showTip(event, 'fs24', 42)" class="i">res</span>
+</code></pre></td>
 </tr>
 </table>
-
 <p>And usage might look something like this:</p>
-
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs25', 42)" onmouseover="showTip(event, 'fs25', 42)" class="i">getGists</span> <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs15', 43)" onmouseover="showTip(event, 'fs15', 43)" class="i">memoize</span> (<span class="k">fun</span> () <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs2', 44)" onmouseover="showTip(event, 'fs2', 44)" class="i">Gist</span><span class="o">.</span><span class="i">Load</span>(<span class="s">&quot;</span><span class="s">https</span><span class="s">:</span><span class="s">/</span><span class="s">/</span><span class="s">api</span><span class="s">.</span><span class="s">github</span><span class="s">.</span><span class="s">com</span><span class="s">/</span><span class="s">gists</span><span class="s">&quot;</span>))</pre>
-</td>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 43)" onmouseover="showTip(event, 'fs26', 43)" class="f">getGists</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs16', 44)" onmouseover="showTip(event, 'fs16', 44)" class="f">memoize</span> (<span class="k">fun</span> () <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs3', 45)" onmouseover="showTip(event, 'fs3', 45)" class="i">Gist</span><span class="o">.</span><span class="i">Load</span>(<span class="s">&quot;https://api.github.com/gists&quot;</span>))
+</code></pre></td>
 </tr>
 </table>
-
-<p>Memoize is of the type ('a -> 'b) -> ('a -> 'b). Said another way: memoize accepts a function and returns a new version of that function that memoizes its inputs and outputs to optimize subsequent calls. In our case we're passing it a function that accepts unit and returns a list of Gists. It's worth nothing that if you're memoizing a function that accepts unit, then the key for the Map cache value is null (TIL that null is a valid key for a Map).</p>
-
+<p>Memoize is of the type ('a -&gt; 'b) -&gt; ('a -&gt; 'b). Said another way: memoize accepts a function and returns a new version of that function that memoizes its inputs and outputs to optimize subsequent calls. In our case we're passing it a function that accepts unit and returns a list of Gists. It's worth nothing that if you're memoizing a function that accepts unit, then the key for the Map cache value is null (TIL that null is a valid key for a Map).</p>
 <p><strong><a href="http://blogs.msdn.com/b/dsyme/archive/2007/05/31/a-sample-of-the-memoization-pattern-in-f.aspx">Source for memoize function.</a></strong></p>
-
 <h2>Type Augmentations</h2>
-
 <p>F# type augmentations are similar to extension methods, but they can extend to properties, events, and static members. The Auto Layout code sample referenced above adds several read-only properties to the Xamarin.iOS UIView type along with a couple of properties for setting the priority for vertical and horizontal hugging. We can now get and set those properties anytime we're working with an instance of UIView. We didn't have to create a subclass that inherited from UIView to get this functionality.</p>
-
 <h2>Summary</h2>
-
 <p>One thing all of the examples above really capture is how terse yet expressive F# can be. More than anything else I have been able to be productive on this project because of how little code I have to write. So far the hardest part of this little iOS project has been the iOS part. Xamarin and F# have been huge time savers.</p>
 
-<div class="tip" id="fs1">namespace Microsoft.FSharp.Data</div>
-<div class="tip" id="fs2">type Gist = obj<br /><br />Full name: mobileappswf.Gist</div>
-<div class="tip" id="fs3">Multiple items<br />type EntryPointAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; EntryPointAttribute<br /><br />Full name: Microsoft.FSharp.Core.EntryPointAttribute<br /><br />--------------------<br />new : unit -&gt; EntryPointAttribute</div>
-<div class="tip" id="fs4">val main : argv:string [] -&gt; int<br /><br />Full name: mobileappswf.main</div>
-<div class="tip" id="fs5">val argv : string []</div>
-<div class="tip" id="fs6">val gists : obj []</div>
-<div class="tip" id="fs7">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
-<div class="tip" id="fs8">module Array<br /><br />from Microsoft.FSharp.Collections</div>
-<div class="tip" id="fs9">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []<br /><br />Full name: Microsoft.FSharp.Collections.Array.map</div>
-<div class="tip" id="fs10">val g : obj</div>
-<div class="tip" id="fs11">val reduce : reduction:(&#39;T -&gt; &#39;T -&gt; &#39;T) -&gt; array:&#39;T [] -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Collections.Array.reduce</div>
-<div class="tip" id="fs12">val a : string</div>
-<div class="tip" id="fs13">val e : string</div>
-<div class="tip" id="fs14">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
-<div class="tip" id="fs15">val memoize : f:(&#39;a -&gt; &#39;b) -&gt; (&#39;a -&gt; &#39;b) (requires comparison)<br /><br />Full name: mobileappswf.memoize</div>
-<div class="tip" id="fs16">val f : (&#39;a -&gt; &#39;b) (requires comparison)</div>
-<div class="tip" id="fs17">val cache : Map&lt;&#39;a,&#39;b&gt; ref (requires comparison)</div>
-<div class="tip" id="fs18">Multiple items<br />val ref : value:&#39;T -&gt; &#39;T ref<br /><br />Full name: Microsoft.FSharp.Core.Operators.ref<br /><br />--------------------<br />type &#39;T ref = Ref&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Core.ref&lt;_&gt;</div>
-<div class="tip" id="fs19">Multiple items<br />module Map<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type Map&lt;&#39;Key,&#39;Value (requires comparison)&gt; =<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IComparable<br />&#160;&#160;interface IEnumerable&lt;KeyValuePair&lt;&#39;Key,&#39;Value&gt;&gt;<br />&#160;&#160;interface ICollection&lt;KeyValuePair&lt;&#39;Key,&#39;Value&gt;&gt;<br />&#160;&#160;interface IDictionary&lt;&#39;Key,&#39;Value&gt;<br />&#160;&#160;new : elements:seq&lt;&#39;Key * &#39;Value&gt; -&gt; Map&lt;&#39;Key,&#39;Value&gt;<br />&#160;&#160;member Add : key:&#39;Key * value:&#39;Value -&gt; Map&lt;&#39;Key,&#39;Value&gt;<br />&#160;&#160;member ContainsKey : key:&#39;Key -&gt; bool<br />&#160;&#160;override Equals : obj -&gt; bool<br />&#160;&#160;member Remove : key:&#39;Key -&gt; Map&lt;&#39;Key,&#39;Value&gt;<br />&#160;&#160;...<br /><br />Full name: Microsoft.FSharp.Collections.Map&lt;_,_&gt;<br /><br />--------------------<br />new : elements:seq&lt;&#39;Key * &#39;Value&gt; -&gt; Map&lt;&#39;Key,&#39;Value&gt;</div>
-<div class="tip" id="fs20">val empty&lt;&#39;Key,&#39;T (requires comparison)&gt; : Map&lt;&#39;Key,&#39;T&gt; (requires comparison)<br /><br />Full name: Microsoft.FSharp.Collections.Map.empty</div>
-<div class="tip" id="fs21">val x : &#39;a (requires comparison)</div>
-<div class="tip" id="fs22">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
-<div class="tip" id="fs23">val res : &#39;b</div>
-<div class="tip" id="fs24">union case Option.None: Option&lt;&#39;T&gt;</div>
-<div class="tip" id="fs25">val getGists : (unit -&gt; obj)<br /><br />Full name: mobileappswf.getGists</div>
+<div class="tip" id="fs1">namespace Microsoft.FSharp</div>
+<div class="tip" id="fs2">namespace Microsoft.FSharp.Data</div>
+<div class="tip" id="fs3">type Gist = obj<br /><br />Full name: mobileappswf.Gist</div>
+<div class="tip" id="fs4">Multiple items<br />type EntryPointAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; EntryPointAttribute<br /><br />Full name: Microsoft.FSharp.Core.EntryPointAttribute<br /><br />--------------------<br />new : unit -&gt; EntryPointAttribute</div>
+<div class="tip" id="fs5">val main : argv:string [] -&gt; int<br /><br />Full name: mobileappswf.main</div>
+<div class="tip" id="fs6">val argv : string []</div>
+<div class="tip" id="fs7">val gists : obj []</div>
+<div class="tip" id="fs8">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
+<div class="tip" id="fs9">module Array<br /><br />from Microsoft.FSharp.Collections</div>
+<div class="tip" id="fs10">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []<br /><br />Full name: Microsoft.FSharp.Collections.Array.map</div>
+<div class="tip" id="fs11">val g : obj</div>
+<div class="tip" id="fs12">val reduce : reduction:(&#39;T -&gt; &#39;T -&gt; &#39;T) -&gt; array:&#39;T [] -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Collections.Array.reduce</div>
+<div class="tip" id="fs13">val a : string</div>
+<div class="tip" id="fs14">val e : string</div>
+<div class="tip" id="fs15">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
+<div class="tip" id="fs16">val memoize : f:(&#39;a -&gt; &#39;b) -&gt; (&#39;a -&gt; &#39;b) (requires comparison)<br /><br />Full name: mobileappswf.memoize</div>
+<div class="tip" id="fs17">val f : (&#39;a -&gt; &#39;b) (requires comparison)</div>
+<div class="tip" id="fs18">val cache : Map&lt;&#39;a,&#39;b&gt; ref (requires comparison)</div>
+<div class="tip" id="fs19">Multiple items<br />val ref : value:&#39;T -&gt; &#39;T ref<br /><br />Full name: Microsoft.FSharp.Core.Operators.ref<br /><br />--------------------<br />type &#39;T ref = Ref&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Core.ref&lt;_&gt;</div>
+<div class="tip" id="fs20">Multiple items<br />module Map<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type Map&lt;&#39;Key,&#39;Value (requires comparison)&gt; =<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IComparable<br />&#160;&#160;interface IEnumerable&lt;KeyValuePair&lt;&#39;Key,&#39;Value&gt;&gt;<br />&#160;&#160;interface ICollection&lt;KeyValuePair&lt;&#39;Key,&#39;Value&gt;&gt;<br />&#160;&#160;interface IDictionary&lt;&#39;Key,&#39;Value&gt;<br />&#160;&#160;new : elements:seq&lt;&#39;Key * &#39;Value&gt; -&gt; Map&lt;&#39;Key,&#39;Value&gt;<br />&#160;&#160;member Add : key:&#39;Key * value:&#39;Value -&gt; Map&lt;&#39;Key,&#39;Value&gt;<br />&#160;&#160;member ContainsKey : key:&#39;Key -&gt; bool<br />&#160;&#160;override Equals : obj -&gt; bool<br />&#160;&#160;member Remove : key:&#39;Key -&gt; Map&lt;&#39;Key,&#39;Value&gt;<br />&#160;&#160;...<br /><br />Full name: Microsoft.FSharp.Collections.Map&lt;_,_&gt;<br /><br />--------------------<br />new : elements:seq&lt;&#39;Key * &#39;Value&gt; -&gt; Map&lt;&#39;Key,&#39;Value&gt;</div>
+<div class="tip" id="fs21">val empty&lt;&#39;Key,&#39;T (requires comparison)&gt; : Map&lt;&#39;Key,&#39;T&gt; (requires comparison)<br /><br />Full name: Microsoft.FSharp.Collections.Map.empty</div>
+<div class="tip" id="fs22">val x : &#39;a (requires comparison)</div>
+<div class="tip" id="fs23">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs24">val res : &#39;b</div>
+<div class="tip" id="fs25">union case Option.None: Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs26">val getGists : (unit -&gt; obj)<br /><br />Full name: mobileappswf.getGists</div>
 
         </div>
         <footer>
@@ -340,7 +296,7 @@
             <p>Powered by <a href="https://twitter.com/mattdrivendev">MattDrivenDev's</a>&nbsp;<a href="https://github.com/fsprojects/FsBlog">FsBlog</a></p>
             <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/dbtek/dbyll">dbtek</a></small></p>
             <p>
-                &copy; 2015
+                &copy; 2016
             </p>
         </footer>
     </div>
