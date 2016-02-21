@@ -5,6 +5,15 @@
     <description>I need a description
 </description>
     <item>
+      <title>Hosting Suave as a Sub App in IIS &amp; Asking for Help</title>
+      <guid>http://localhost:8080/FsBlog/blog/2016/02-13-suave-sub-app-asking-for-help</guid>
+      <link>http://localhost:8080/FsBlog/blog/2016/02-13-suave-sub-app-asking-for-help/index.html</link>
+      <pubDate>Sat, 13 Feb 2016 14:14:38 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
       <title>F# Events, Reactive Programming and Async Workflows</title>
       <guid>http://localhost:8080/FsBlog/blog/2015/12-3-fsharp-events-rx-async</guid>
       <link>http://localhost:8080/FsBlog/blog/2015/12-3-fsharp-events-rx-async/index.html</link>
