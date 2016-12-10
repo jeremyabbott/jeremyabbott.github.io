@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Jeremy Abbott</title>
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/resources/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    
+    <!-- FSharp.Formatting Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/fsharp.formatting/tooltips.css" />
+    <script type="text/javascript" src="/fsharp.formatting/tooltips.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="" href="/rss.xml">
+</head>
+<body>
+    <!-- Mobile Nav Section -->
+    <nav class="navbar navbar-default visible-xs" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a type="button" class="navbar-toggle nav-link" href="http://github.com/jeremyabbott">
+                <i class="fa fa-github"></i>
+            </a>
+            
+            <a type="button" class="navbar-toggle nav-link" href="http://twitter.com/mrjabbott">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a type="button" class="navbar-toggle nav-link" href="mailto:jeremymabbott@gmail.com">
+                <i class="fa fa-envelope"></i>
+            </a>
+            <a class="navbar-brand" href="/">
+                <img src="http://www.gravatar.com/avatar/d2087702a492be991c18b4dc0fed20d1.png?s=35" class="img-circle" />
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="http://resumejeremyabbott.azurewebsites.net/">Résumé</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+
+    <!-- nav-menu-dropdown -->
+    <div class="btn-group hidden-xs" id="nav-menu">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="/blog"><i class="fa fa-pencil"></i>Blog</a></li>
+            <li><a href="http://resumejeremyabbott.azurewebsites.net/"><i class="fa fa-file-pdf-o"></i>Résumé</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+        </ul>
+    </div>
+
+    <!-- sidebar -->
+    <div class="col-sm-3 sidebar hidden-xs">
+        <header class="sidebar-header" role="banner">
+            <a href="/">
+                <img src="http://www.gravatar.com/avatar/d2087702a492be991c18b4dc0fed20d1?s=150" class="img-circle" />
+            </a>
+            <h3 class="title">
+                <a href="/">Jeremy Abbott</a>
+            </h3>
+            </header>
+        <div id="bio" class="text-center">
+        <p>I'm a developer at Shreveport development shop Praeses, where I work as a project architect, developer, and recruiter. I work hard to deliver clean, extensible, and maintainable solutions to customers' business problems. I'm passionate about software as a profession and craft and work to cultivate that mindset in my team members through constant training.</p>
+        <p>When I'm not writing code I'm advocating for LGBT equality.</p>
+        </div>
+        <div id="contact-list" class="text-center">
+            <ul class="list-unstyled list-inline">
+                <li>
+                    <a class="btn btn-default btn-sm" href="https://github.com/jeremyabbott">
+                        <i class="fa fa-github-alt fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-default btn-sm" href="https://twitter.com/mrjabbott">
+                        <i class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-default btn-sm" href="mailto:jeremymabbott@gmail.com">
+                        <i class="fa fa-envelope fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul id="contact-list-secondary" class="list-unstyled list-inline">
+                <li>
+                    <a class="btn btn-default btn-sm" href="/rss.xml">
+                        <i class="fa fa-rss fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-default btn-sm" href="http://resumejeremyabbott.azurewebsites.net/">
+                        <i class="fa fa-file-text-o fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="col-sm-9 col-sm-offset-3">
+        <div class="page-header">
+            <h1>Jeremy Abbott</h1>
+            <em>(Not the Figure Skater)</em>
+        </div>
+        <div class="container">
+            <h1>Merry Monad Xmas</h1>
+
+
+<p>I've been playing with F# and functional programming (FP) as a hobby for a few years now. For the past month I've had the privilege of working with a mentor from the F# Foundation. If you're not a member of the F# Foundation, stop reading right now and <a href="http://foundation.fsharp.org/join">go join</a>.</p>
+<p>One (of many!) aspects of functional programming that's intimidated me has been the concept of monads. For some reason I've felt that the full power of FP would become clear if I could understand this concept. I have a bad habit of shying away from concepts that sound too mathematically abstract, and I always felt that monads fell into that category. It's a personal failing I'm trying to get better at. With that being said, when I got paired up with <a href="https://twitter.com/cboudereau">Clément</a>, we started working on monads immediately. For my contribution the 2016 F# Advent Calendar I hope to explain how I understand monads in the hope that it might help you too!</p>
+<h2>Setting Up The Story</h2>
+<p>Santa needs to deliver presents to the millions of good children that made the nice list. Those naughty children that didn't make the cut will be receiving a lump of coal.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+<span class="l">27: </span>
+<span class="l">28: </span>
+<span class="l">29: </span>
+<span class="l">30: </span>
+<span class="l">31: </span>
+<span class="l">32: </span>
+<span class="l">33: </span>
+<span class="l">34: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">System</span>
+
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="t">Gift</span> <span class="o">=</span>
+| <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="p">Wants</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="t">string</span>
+| <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="p">Coal</span>
+
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="t">Person</span> <span class="o">=</span> { <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="i">Name</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs4', 8)" onmouseover="showTip(event, 'fs4', 8)" class="t">string</span>; <span onmouseout="hideTip(event, 'fs8', 9)" onmouseover="showTip(event, 'fs8', 9)" class="i">SharedToys</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="t">bool</span>; <span onmouseout="hideTip(event, 'fs10', 11)" onmouseover="showTip(event, 'fs10', 11)" class="i">IsANastyWoman</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 12)" onmouseover="showTip(event, 'fs9', 12)" class="t">bool</span>; <span onmouseout="hideTip(event, 'fs11', 13)" onmouseover="showTip(event, 'fs11', 13)" class="i">Wants</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs4', 14)" onmouseover="showTip(event, 'fs4', 14)" class="t">string</span> }
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="f">giftIf</span> <span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="i">behavior</span> <span onmouseout="hideTip(event, 'fs14', 17)" onmouseover="showTip(event, 'fs14', 17)" class="i">person</span> <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 18)" onmouseover="showTip(event, 'fs15', 18)" class="i">gift</span> <span class="o">=</span> <span class="k">if</span> <span onmouseout="hideTip(event, 'fs13', 19)" onmouseover="showTip(event, 'fs13', 19)" class="i">behavior</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs3', 20)" onmouseover="showTip(event, 'fs3', 20)" class="p">Wants</span> <span onmouseout="hideTip(event, 'fs14', 21)" onmouseover="showTip(event, 'fs14', 21)" class="i">person</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 22)" onmouseover="showTip(event, 'fs11', 22)" class="i">Wants</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs5', 23)" onmouseover="showTip(event, 'fs5', 23)" class="p">Coal</span>
+    <span onmouseout="hideTip(event, 'fs14', 24)" onmouseover="showTip(event, 'fs14', 24)" class="i">person</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 25)" onmouseover="showTip(event, 'fs7', 25)" class="i">Name</span>, <span onmouseout="hideTip(event, 'fs15', 26)" onmouseover="showTip(event, 'fs15', 26)" class="i">gift</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 27)" onmouseover="showTip(event, 'fs16', 27)" class="f">sharedToys</span> <span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="i">person</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 29)" onmouseover="showTip(event, 'fs12', 29)" class="f">giftIf</span> <span onmouseout="hideTip(event, 'fs14', 30)" onmouseover="showTip(event, 'fs14', 30)" class="i">person</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 31)" onmouseover="showTip(event, 'fs8', 31)" class="i">SharedToys</span> <span onmouseout="hideTip(event, 'fs14', 32)" onmouseover="showTip(event, 'fs14', 32)" class="i">person</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 33)" onmouseover="showTip(event, 'fs17', 33)" class="f">wasANastyWoman</span> <span onmouseout="hideTip(event, 'fs14', 34)" onmouseover="showTip(event, 'fs14', 34)" class="i">person</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 35)" onmouseover="showTip(event, 'fs12', 35)" class="f">giftIf</span> <span onmouseout="hideTip(event, 'fs14', 36)" onmouseover="showTip(event, 'fs14', 36)" class="i">person</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 37)" onmouseover="showTip(event, 'fs10', 37)" class="i">IsANastyWoman</span> <span onmouseout="hideTip(event, 'fs14', 38)" onmouseover="showTip(event, 'fs14', 38)" class="i">person</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 39)" onmouseover="showTip(event, 'fs18', 39)" class="f">determineGift</span> <span onmouseout="hideTip(event, 'fs14', 40)" onmouseover="showTip(event, 'fs14', 40)" class="i">person</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs16', 41)" onmouseover="showTip(event, 'fs16', 41)" class="f">sharedToys</span> <span onmouseout="hideTip(event, 'fs14', 42)" onmouseover="showTip(event, 'fs14', 42)" class="i">person</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs19', 43)" onmouseover="showTip(event, 'fs19', 43)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs5', 44)" onmouseover="showTip(event, 'fs5', 44)" class="p">Coal</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs19', 45)" onmouseover="showTip(event, 'fs19', 45)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs5', 46)" onmouseover="showTip(event, 'fs5', 46)" class="p">Coal</span> <span class="c">// fail fast</span>
+    | _, _ <span class="k">-&gt;</span>
+        <span class="k">match</span> <span onmouseout="hideTip(event, 'fs17', 47)" onmouseover="showTip(event, 'fs17', 47)" class="f">wasANastyWoman</span> <span onmouseout="hideTip(event, 'fs14', 48)" onmouseover="showTip(event, 'fs14', 48)" class="i">person</span> <span class="k">with</span>
+        | <span onmouseout="hideTip(event, 'fs19', 49)" onmouseover="showTip(event, 'fs19', 49)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs5', 50)" onmouseover="showTip(event, 'fs5', 50)" class="p">Coal</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs19', 51)" onmouseover="showTip(event, 'fs19', 51)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs5', 52)" onmouseover="showTip(event, 'fs5', 52)" class="p">Coal</span> <span class="c">// fail again</span>
+        | <span onmouseout="hideTip(event, 'fs19', 53)" onmouseover="showTip(event, 'fs19', 53)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs3', 54)" onmouseover="showTip(event, 'fs3', 54)" class="p">Wants</span> <span onmouseout="hideTip(event, 'fs20', 55)" onmouseover="showTip(event, 'fs20', 55)" class="i">s</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs19', 56)" onmouseover="showTip(event, 'fs19', 56)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs3', 57)" onmouseover="showTip(event, 'fs3', 57)" class="p">Wants</span> <span onmouseout="hideTip(event, 'fs20', 58)" onmouseover="showTip(event, 'fs20', 58)" class="i">s</span> 
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 59)" onmouseover="showTip(event, 'fs21', 59)" class="f">naughtyOrNice</span> <span onmouseout="hideTip(event, 'fs14', 60)" onmouseover="showTip(event, 'fs14', 60)" class="i">person</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs14', 61)" onmouseover="showTip(event, 'fs14', 61)" class="i">person</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs18', 62)" onmouseover="showTip(event, 'fs18', 62)" class="f">determineGift</span>
+
+<span onmouseout="hideTip(event, 'fs21', 63)" onmouseover="showTip(event, 'fs21', 63)" class="f">naughtyOrNice</span> { <span class="i">Name</span> <span class="o">=</span> <span class="s">&quot;Jeremy&quot;</span>; <span class="c">// Jeremy gets a redo on 2016</span>
+                <span class="i">IsANastyWoman</span> <span class="o">=</span> <span class="k">true</span>;
+                <span class="i">SharedToys</span> <span class="o">=</span> <span class="k">true</span>; 
+                <span onmouseout="hideTip(event, 'fs3', 64)" onmouseover="showTip(event, 'fs3', 64)" class="i">Wants</span> <span class="o">=</span> <span class="s">&quot;For 2016 not to have happenend&quot;</span> }
+
+<span onmouseout="hideTip(event, 'fs21', 65)" onmouseover="showTip(event, 'fs21', 65)" class="f">naughtyOrNice</span> { <span class="i">Name</span> <span class="o">=</span> <span class="s">&quot;Donald&quot;</span>; <span class="c">// Donald gets coal</span>
+                <span class="i">IsANastyWoman</span> <span class="o">=</span> <span class="k">false</span>;
+                <span class="i">SharedToys</span> <span class="o">=</span> <span class="k">false</span>;
+                <span onmouseout="hideTip(event, 'fs3', 66)" onmouseover="showTip(event, 'fs3', 66)" class="i">Wants</span> <span class="o">=</span> <span class="s">&quot;To maintain systemic discrimination and privilege.&quot;</span> }
+</code></pre></td>
+</tr>
+</table>
+<p>The preceding code defines a record type with a <code>Name</code> property, and the criteria Santa is using this year to determine if someone is naughty or nice. Next we define some functions to validate each person, and then ultimately determine if they are naughty or nice.</p>
+<p>The functions <code>sharedToys</code> and <code>wasANastyWoman</code> return tuples of the type <code>string * Gift</code> where the Gift's case is based on whether or not they were a decent person. If they weren't a decent person they get a nice lump of coal for Christmas.</p>
+<p>The function <code>determineGift</code> determines whether the person gets Coal or the gift they requested. Our problem starts here:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// this is not ideal</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 67)" onmouseover="showTip(event, 'fs18', 67)" class="f">determineGift</span> <span onmouseout="hideTip(event, 'fs14', 68)" onmouseover="showTip(event, 'fs14', 68)" class="i">person</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs16', 69)" onmouseover="showTip(event, 'fs16', 69)" class="f">sharedToys</span> <span onmouseout="hideTip(event, 'fs14', 70)" onmouseover="showTip(event, 'fs14', 70)" class="i">person</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs19', 71)" onmouseover="showTip(event, 'fs19', 71)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs5', 72)" onmouseover="showTip(event, 'fs5', 72)" class="p">Coal</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs19', 73)" onmouseover="showTip(event, 'fs19', 73)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs5', 74)" onmouseover="showTip(event, 'fs5', 74)" class="p">Coal</span> <span class="c">// fail fast</span>
+    | _, _ <span class="k">-&gt;</span>
+        <span class="k">match</span> <span onmouseout="hideTip(event, 'fs17', 75)" onmouseover="showTip(event, 'fs17', 75)" class="f">wasANastyWoman</span> <span onmouseout="hideTip(event, 'fs14', 76)" onmouseover="showTip(event, 'fs14', 76)" class="i">person</span> <span class="k">with</span>
+        | <span onmouseout="hideTip(event, 'fs19', 77)" onmouseover="showTip(event, 'fs19', 77)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs5', 78)" onmouseover="showTip(event, 'fs5', 78)" class="p">Coal</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs19', 79)" onmouseover="showTip(event, 'fs19', 79)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs5', 80)" onmouseover="showTip(event, 'fs5', 80)" class="p">Coal</span> <span class="c">// fail again</span>
+        | <span onmouseout="hideTip(event, 'fs19', 81)" onmouseover="showTip(event, 'fs19', 81)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs3', 82)" onmouseover="showTip(event, 'fs3', 82)" class="p">Wants</span> <span onmouseout="hideTip(event, 'fs20', 83)" onmouseover="showTip(event, 'fs20', 83)" class="i">s</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs19', 84)" onmouseover="showTip(event, 'fs19', 84)" class="i">n</span>, <span onmouseout="hideTip(event, 'fs3', 85)" onmouseover="showTip(event, 'fs3', 85)" class="p">Wants</span> <span onmouseout="hideTip(event, 'fs20', 86)" onmouseover="showTip(event, 'fs20', 86)" class="i">s</span>  <span class="c">// what if we need to add more validation rules?</span>
+</code></pre></td>
+</tr>
+</table>
+<p>As we add more rules for determining gifts we have to keep extending this function. "Arrow code" like this is a code smell. This kind of code isn't very idiomatic in functional programming either. Yes, we have small functions that do one thing, but we don't have a nice way of composing them together.</p>
+<p>To make this a little more idiomatic we could change <code>Person</code> like this:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs22', 87)" onmouseover="showTip(event, 'fs22', 87)" class="t">Person&#39;</span> <span class="o">=</span> { <span onmouseout="hideTip(event, 'fs23', 88)" onmouseover="showTip(event, 'fs23', 88)" class="i">Name</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs4', 89)" onmouseover="showTip(event, 'fs4', 89)" class="t">string</span>; <span onmouseout="hideTip(event, 'fs24', 90)" onmouseover="showTip(event, 'fs24', 90)" class="i">SharedToys</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 91)" onmouseover="showTip(event, 'fs9', 91)" class="t">bool</span>; <span onmouseout="hideTip(event, 'fs25', 92)" onmouseover="showTip(event, 'fs25', 92)" class="i">IsANastyWoman</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 93)" onmouseover="showTip(event, 'fs9', 93)" class="t">bool</span>; <span onmouseout="hideTip(event, 'fs26', 94)" onmouseover="showTip(event, 'fs26', 94)" class="i">Gift</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs26', 95)" onmouseover="showTip(event, 'fs26', 95)" class="t">Gift</span> }
+</code></pre></td>
+</tr>
+</table>
+<p>And then change the validation functions to behave like this:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs22', 96)" onmouseover="showTip(event, 'fs22', 96)" class="i">Person&#39;</span> <span class="o">=</span> { <span class="i">Name</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs4', 97)" onmouseover="showTip(event, 'fs4', 97)" class="i">string</span>; <span class="i">SharedToys</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 98)" onmouseover="showTip(event, 'fs9', 98)" class="i">bool</span>; <span class="i">IsANastyWoman</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs9', 99)" onmouseover="showTip(event, 'fs9', 99)" class="i">bool</span>; <span onmouseout="hideTip(event, 'fs26', 100)" onmouseover="showTip(event, 'fs26', 100)" class="i">Gift</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs26', 101)" onmouseover="showTip(event, 'fs26', 101)" class="i">Gift</span> }
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 102)" onmouseover="showTip(event, 'fs27', 102)" class="f">giftIf&#39;</span> <span onmouseout="hideTip(event, 'fs13', 103)" onmouseover="showTip(event, 'fs13', 103)" class="i">behavior</span> (<span onmouseout="hideTip(event, 'fs28', 104)" onmouseover="showTip(event, 'fs28', 104)" class="i">person</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs22', 105)" onmouseover="showTip(event, 'fs22', 105)" class="t">Person&#39;</span>) <span class="o">=</span>
+    <span class="k">if</span> <span onmouseout="hideTip(event, 'fs13', 106)" onmouseover="showTip(event, 'fs13', 106)" class="i">behavior</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs28', 107)" onmouseover="showTip(event, 'fs28', 107)" class="i">person</span>
+    <span class="k">else</span> { <span onmouseout="hideTip(event, 'fs28', 108)" onmouseover="showTip(event, 'fs28', 108)" class="i">person</span> <span class="k">with</span> <span onmouseout="hideTip(event, 'fs2', 109)" onmouseover="showTip(event, 'fs2', 109)" class="i">Gift</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs5', 110)" onmouseover="showTip(event, 'fs5', 110)" class="p">Coal</span> }
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 111)" onmouseover="showTip(event, 'fs29', 111)" class="f">sharedToys&#39;</span> <span onmouseout="hideTip(event, 'fs28', 112)" onmouseover="showTip(event, 'fs28', 112)" class="i">person</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs27', 113)" onmouseover="showTip(event, 'fs27', 113)" class="f">giftIf&#39;</span> <span onmouseout="hideTip(event, 'fs28', 114)" onmouseover="showTip(event, 'fs28', 114)" class="i">person</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs24', 115)" onmouseover="showTip(event, 'fs24', 115)" class="i">SharedToys</span> <span onmouseout="hideTip(event, 'fs28', 116)" onmouseover="showTip(event, 'fs28', 116)" class="i">person</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs30', 117)" onmouseover="showTip(event, 'fs30', 117)" class="f">wasANastyWoman&#39;</span> <span onmouseout="hideTip(event, 'fs28', 118)" onmouseover="showTip(event, 'fs28', 118)" class="i">person</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs27', 119)" onmouseover="showTip(event, 'fs27', 119)" class="f">giftIf&#39;</span> <span onmouseout="hideTip(event, 'fs28', 120)" onmouseover="showTip(event, 'fs28', 120)" class="i">person</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs25', 121)" onmouseover="showTip(event, 'fs25', 121)" class="i">IsANastyWoman</span> <span onmouseout="hideTip(event, 'fs28', 122)" onmouseover="showTip(event, 'fs28', 122)" class="i">person</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs31', 123)" onmouseover="showTip(event, 'fs31', 123)" class="f">determineGift&#39;</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs29', 124)" onmouseover="showTip(event, 'fs29', 124)" class="f">sharedToys&#39;</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs30', 125)" onmouseover="showTip(event, 'fs30', 125)" class="f">wasANastyWoman&#39;</span>
+</code></pre></td>
+</tr>
+</table>
+<p>Now we can add new functions to <code>determineGift</code> via composition. Unfortunately it's not clear what kind of gift a person gets without inspecting the <code>Person'</code> record. We would have to match on the shape of the record type if we wanted to filter on people who were naughty or nice.</p>
+<h2>Using a Result Type</h2>
+<p>In the previous iteration we recognized that it would be nice if the inputs and outputs to our validation functions were more uniform because it gave us the flexibility to compose our functions. There is a problem with this latest approach though: All of the validation functions are executed, which means we can't quick return if any of them fail.</p>
+<p>The previous iteration can be improved upon with a couple more adjustments. The previous example mentioned that the caller can't tell if someone was "naughty" or "nice" without inspecting properties on the result. It would be nice if the caller could tell from the result type if the person belonged on the good list or the bad list.</p>
+<h2>Enter the Result Type</h2>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs32', 126)" onmouseover="showTip(event, 'fs32', 126)" class="t">Result</span><span class="o">&lt;</span><span class="o">&#39;</span><span class="i">t</span><span class="o">&gt;</span> <span class="o">=</span>
+| <span onmouseout="hideTip(event, 'fs33', 127)" onmouseover="showTip(event, 'fs33', 127)" class="p">Nice</span> <span class="k">of</span> <span class="o">&#39;</span><span class="i">t</span>
+| <span onmouseout="hideTip(event, 'fs34', 128)" onmouseover="showTip(event, 'fs34', 128)" class="p">Naughty</span> <span class="k">of</span> <span class="o">&#39;</span><span class="i">t</span>
+</code></pre></td>
+</tr>
+</table>
+<p>If the <code>Person</code> was nice, the validation functions should return a result of <code>Nice</code>, and if they were naughty, the functions should return a result of <code>Naughty</code>.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs35', 129)" onmouseover="showTip(event, 'fs35', 129)" class="f">giftIf&#39;&#39;</span> <span onmouseout="hideTip(event, 'fs13', 130)" onmouseover="showTip(event, 'fs13', 130)" class="i">behavior</span> (<span onmouseout="hideTip(event, 'fs28', 131)" onmouseover="showTip(event, 'fs28', 131)" class="i">person</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs22', 132)" onmouseover="showTip(event, 'fs22', 132)" class="t">Person&#39;</span>) <span class="o">=</span>
+    <span class="k">if</span> <span onmouseout="hideTip(event, 'fs13', 133)" onmouseover="showTip(event, 'fs13', 133)" class="i">behavior</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs33', 134)" onmouseover="showTip(event, 'fs33', 134)" class="p">Nice</span> <span onmouseout="hideTip(event, 'fs28', 135)" onmouseover="showTip(event, 'fs28', 135)" class="i">person</span>
+    <span class="k">else</span> <span onmouseout="hideTip(event, 'fs34', 136)" onmouseover="showTip(event, 'fs34', 136)" class="p">Naughty</span> { <span onmouseout="hideTip(event, 'fs28', 137)" onmouseover="showTip(event, 'fs28', 137)" class="i">person</span> <span class="k">with</span> <span onmouseout="hideTip(event, 'fs2', 138)" onmouseover="showTip(event, 'fs2', 138)" class="i">Gift</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs5', 139)" onmouseover="showTip(event, 'fs5', 139)" class="p">Coal</span> }
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs36', 140)" onmouseover="showTip(event, 'fs36', 140)" class="f">sharedToys&#39;&#39;</span> <span onmouseout="hideTip(event, 'fs28', 141)" onmouseover="showTip(event, 'fs28', 141)" class="i">person</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs35', 142)" onmouseover="showTip(event, 'fs35', 142)" class="f">giftIf&#39;&#39;</span> <span onmouseout="hideTip(event, 'fs28', 143)" onmouseover="showTip(event, 'fs28', 143)" class="i">person</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs24', 144)" onmouseover="showTip(event, 'fs24', 144)" class="i">SharedToys</span> <span onmouseout="hideTip(event, 'fs28', 145)" onmouseover="showTip(event, 'fs28', 145)" class="i">person</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs37', 146)" onmouseover="showTip(event, 'fs37', 146)" class="f">wasANastyWoman&#39;&#39;</span> <span onmouseout="hideTip(event, 'fs28', 147)" onmouseover="showTip(event, 'fs28', 147)" class="i">person</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs35', 148)" onmouseover="showTip(event, 'fs35', 148)" class="f">giftIf&#39;&#39;</span> <span onmouseout="hideTip(event, 'fs28', 149)" onmouseover="showTip(event, 'fs28', 149)" class="i">person</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs25', 150)" onmouseover="showTip(event, 'fs25', 150)" class="i">IsANastyWoman</span> <span onmouseout="hideTip(event, 'fs28', 151)" onmouseover="showTip(event, 'fs28', 151)" class="i">person</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs38', 152)" onmouseover="showTip(event, 'fs38', 152)" class="f">determineGift&#39;&#39;</span> <span onmouseout="hideTip(event, 'fs28', 153)" onmouseover="showTip(event, 'fs28', 153)" class="i">person</span> <span class="o">=</span> 
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs36', 154)" onmouseover="showTip(event, 'fs36', 154)" class="f">sharedToys&#39;&#39;</span> <span onmouseout="hideTip(event, 'fs28', 155)" onmouseover="showTip(event, 'fs28', 155)" class="i">person</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs34', 156)" onmouseover="showTip(event, 'fs34', 156)" class="p">Naughty</span> <span onmouseout="hideTip(event, 'fs39', 157)" onmouseover="showTip(event, 'fs39', 157)" class="i">p</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs34', 158)" onmouseover="showTip(event, 'fs34', 158)" class="p">Naughty</span> <span onmouseout="hideTip(event, 'fs39', 159)" onmouseover="showTip(event, 'fs39', 159)" class="i">p</span>
+    | <span onmouseout="hideTip(event, 'fs33', 160)" onmouseover="showTip(event, 'fs33', 160)" class="p">Nice</span> <span onmouseout="hideTip(event, 'fs39', 161)" onmouseover="showTip(event, 'fs39', 161)" class="i">p</span> <span class="k">-&gt;</span>
+        <span class="k">match</span> <span onmouseout="hideTip(event, 'fs37', 162)" onmouseover="showTip(event, 'fs37', 162)" class="f">wasANastyWoman&#39;&#39;</span> <span onmouseout="hideTip(event, 'fs28', 163)" onmouseover="showTip(event, 'fs28', 163)" class="i">person</span> <span class="k">with</span>
+        | <span onmouseout="hideTip(event, 'fs34', 164)" onmouseover="showTip(event, 'fs34', 164)" class="p">Naughty</span> <span onmouseout="hideTip(event, 'fs39', 165)" onmouseover="showTip(event, 'fs39', 165)" class="i">p</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs34', 166)" onmouseover="showTip(event, 'fs34', 166)" class="p">Naughty</span> <span onmouseout="hideTip(event, 'fs39', 167)" onmouseover="showTip(event, 'fs39', 167)" class="i">p</span>
+        | <span onmouseout="hideTip(event, 'fs33', 168)" onmouseover="showTip(event, 'fs33', 168)" class="p">Nice</span> <span onmouseout="hideTip(event, 'fs39', 169)" onmouseover="showTip(event, 'fs39', 169)" class="i">p</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs33', 170)" onmouseover="showTip(event, 'fs33', 170)" class="p">Nice</span> <span onmouseout="hideTip(event, 'fs39', 171)" onmouseover="showTip(event, 'fs39', 171)" class="i">p</span>
+</code></pre></td>
+</tr>
+</table>
+<p>Awesome! The output of the validation functions is now easy to match on. But, the original problem of arrow code and an inability to chain functions is back. It would be nice if the functions were chainable, and if the functions would fail fast meaning that if validation if one function fails, the logic of subsequent functions isn't executed.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// function that accepts a (person -&gt; Result) and a Result</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs40', 172)" onmouseover="showTip(event, 'fs40', 172)" class="f">failFast</span> <span onmouseout="hideTip(event, 'fs41', 173)" onmouseover="showTip(event, 'fs41', 173)" class="f">nOrFF</span> <span onmouseout="hideTip(event, 'fs42', 174)" onmouseover="showTip(event, 'fs42', 174)" class="i">nOrF</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs42', 175)" onmouseover="showTip(event, 'fs42', 175)" class="i">nOrF</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs34', 176)" onmouseover="showTip(event, 'fs34', 176)" class="p">Naughty</span> <span onmouseout="hideTip(event, 'fs43', 177)" onmouseover="showTip(event, 'fs43', 177)" class="i">p</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs34', 178)" onmouseover="showTip(event, 'fs34', 178)" class="p">Naughty</span> <span onmouseout="hideTip(event, 'fs43', 179)" onmouseover="showTip(event, 'fs43', 179)" class="i">p</span>
+    | <span onmouseout="hideTip(event, 'fs33', 180)" onmouseover="showTip(event, 'fs33', 180)" class="p">Nice</span> <span onmouseout="hideTip(event, 'fs43', 181)" onmouseover="showTip(event, 'fs43', 181)" class="i">p</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs41', 182)" onmouseover="showTip(event, 'fs41', 182)" class="f">nOrFF</span> <span onmouseout="hideTip(event, 'fs43', 183)" onmouseover="showTip(event, 'fs43', 183)" class="i">p</span>
+</code></pre></td>
+</tr>
+</table>
+<p>The function <code>failFast</code> accepts any function with the signature <code>('a -&gt; Result&lt;'a&gt;)</code> and returns a function with a signature of <code>(Result&lt;'a&gt; -&gt; Result&lt;'a&gt;)</code>. Said another way it's a function that accepts <code>('a -&gt; Result&lt;'a&gt;)</code> and a <code>Result&lt;'a&gt;</code> and returns <code>Result&lt;'a&gt;</code>.</p>
+<p>Using <code>failFast</code> we can rewrite <code>determineGift</code> as follows:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs44', 184)" onmouseover="showTip(event, 'fs44', 184)" class="f">determineGiftRedux</span> <span onmouseout="hideTip(event, 'fs28', 185)" onmouseover="showTip(event, 'fs28', 185)" class="i">person</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs28', 186)" onmouseover="showTip(event, 'fs28', 186)" class="i">person</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs36', 187)" onmouseover="showTip(event, 'fs36', 187)" class="f">sharedToys&#39;&#39;</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs40', 188)" onmouseover="showTip(event, 'fs40', 188)" class="f">failFast</span> <span onmouseout="hideTip(event, 'fs37', 189)" onmouseover="showTip(event, 'fs37', 189)" class="f">wasANastyWoman&#39;&#39;</span>
+    
+<span onmouseout="hideTip(event, 'fs44', 190)" onmouseover="showTip(event, 'fs44', 190)" class="f">determineGiftRedux</span> { <span class="i">Name</span> <span class="o">=</span> <span class="s">&quot;Donald&quot;</span>; <span class="i">IsANastyWoman</span> <span class="o">=</span> <span class="k">false</span>; <span class="i">SharedToys</span> <span class="o">=</span> <span class="k">false</span>; <span onmouseout="hideTip(event, 'fs2', 191)" onmouseover="showTip(event, 'fs2', 191)" class="i">Gift</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 192)" onmouseover="showTip(event, 'fs3', 192)" class="p">Wants</span> <span class="s">&quot;To maintain systemic discrimination and privilege.&quot;</span> }
+</code></pre></td>
+</tr>
+</table>
+<p>Using the <code>failFast</code> function <code>determineGift</code> can be rewritten using a the pipe operator in something that is idiomatically F#.</p>
+<p>Another key piece of the <code>failFast</code> function is that once we determine that a <code>Person'</code> is <code>Naughty</code> subsequent validation functions no longer get called. This can be really important if a validation function performs an expensive operation because it gets skipped if we already have enough information to make a determination.</p>
+<p>We can make <code>failFast</code> even prettier:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> (<span class="o">&gt;</span><span class="o">&gt;</span><span class="o">=</span>) <span onmouseout="hideTip(event, 'fs42', 193)" onmouseover="showTip(event, 'fs42', 193)" class="i">nOrF</span> <span onmouseout="hideTip(event, 'fs41', 194)" onmouseover="showTip(event, 'fs41', 194)" class="f">nOrFF</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs40', 195)" onmouseover="showTip(event, 'fs40', 195)" class="f">failFast</span> <span onmouseout="hideTip(event, 'fs41', 196)" onmouseover="showTip(event, 'fs41', 196)" class="f">nOrFF</span> <span onmouseout="hideTip(event, 'fs42', 197)" onmouseover="showTip(event, 'fs42', 197)" class="i">nOrF</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs45', 198)" onmouseover="showTip(event, 'fs45', 198)" class="f">determineGiftRedux&#39;</span> <span onmouseout="hideTip(event, 'fs28', 199)" onmouseover="showTip(event, 'fs28', 199)" class="i">person</span> <span class="o">=</span>
+   <span onmouseout="hideTip(event, 'fs28', 200)" onmouseover="showTip(event, 'fs28', 200)" class="i">person</span>
+   <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs36', 201)" onmouseover="showTip(event, 'fs36', 201)" class="f">sharedToys&#39;&#39;</span> 
+   <span class="o">&gt;</span><span class="o">&gt;</span><span class="o">=</span> <span onmouseout="hideTip(event, 'fs37', 202)" onmouseover="showTip(event, 'fs37', 202)" class="f">wasANastyWoman&#39;&#39;</span>
+
+<span onmouseout="hideTip(event, 'fs45', 203)" onmouseover="showTip(event, 'fs45', 203)" class="f">determineGiftRedux&#39;</span> { <span class="i">Name</span> <span class="o">=</span> <span class="s">&quot;Donald&quot;</span>; <span class="i">IsANastyWoman</span> <span class="o">=</span> <span class="k">false</span>; <span class="i">SharedToys</span> <span class="o">=</span> <span class="k">false</span>; <span onmouseout="hideTip(event, 'fs2', 204)" onmouseover="showTip(event, 'fs2', 204)" class="i">Gift</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 205)" onmouseover="showTip(event, 'fs3', 205)" class="p">Wants</span> <span class="s">&quot;To maintain systemic discrimination and privilege.&quot;</span> }
+</code></pre></td>
+</tr>
+</table>
+<p>A few things are happening here:</p>
+<ol>
+<li>A custom operator is created for <code>failFast</code>. It accepts a <code>Result</code> type on the left side of the operator, and a function of type <code>'a -&gt; Result&lt;'a&gt;</code> on the right side.</li>
+<li>A person is piped to the first validation function using the built-in pipe operator. This returns a <code>Result&lt;Person'&gt;</code> which can be passed to the new custom operator.</li>
+<li>The next validation function is passed as the second argument to the <code>&gt;&gt;=</code> custom operator.</li>
+<li>Additional validation functions can be included in the pipeline using <code>&gt;&gt;=</code> at this point, and they will only get called if the <code>Result</code> matches the <code>Nice</code> case.</li>
+</ol>
+<h2><code>failFast</code> has Another Name</h2>
+<p>The <code>failFast</code> function has another, more idiomatic name: <code>bind</code> or <code>flatMap</code>. The name <code>failFast</code> makes sense for the type we're working with, but any type can implement this function and the underlying behavior could be very different. The general signature for this function is <code>('a -&gt; M&lt;'a&gt;) -&gt; M&lt;'a&gt; -&gt; M&lt;'b&gt;</code>. This function's purpose is to take a function with a signature of <code>'a -&gt; M&lt;'a&gt;</code> and convert it to a function with the signature <code>M&lt;'a&gt; -&gt; M&lt;'b&gt;</code>. For me this was (is?) hard to grasp at first because as much as I delve into function programming I forget about key features of the style like currying and partial application.</p>
+<p>When only the first argument is passed to <code>bind</code> via partial application, a new function is returned, and that function has the signature <code>M&lt;'a&gt; -&gt; M&lt;'b&gt;</code>. That new function allows the caller to chain functions, threading <code>M&lt;'a&gt;</code> through as the argument. Neat!</p>
+<h2>Introducing Map</h2>
+<p>The <code>Result</code> type has turned out to be pretty useful for this exercise. However, how can we use the <code>Result</code> type in practice if we have functions that weren't written to work with <code>Result</code>? For example, what if a lot of people are asking for a "redo on 2016?" That seems really valid, but isn't the most feasible gift. Santa suggests that they just need a time out with the latest Pokémon game because Pokémon makes everything better.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs46', 206)" onmouseover="showTip(event, 'fs46', 206)" class="f">needsPokemon</span> <span onmouseout="hideTip(event, 'fs39', 207)" onmouseover="showTip(event, 'fs39', 207)" class="i">p</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs39', 208)" onmouseover="showTip(event, 'fs39', 208)" class="i">p</span> <span class="k">with</span>
+    | { <span onmouseout="hideTip(event, 'fs2', 209)" onmouseover="showTip(event, 'fs2', 209)" class="i">Gift</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 210)" onmouseover="showTip(event, 'fs3', 210)" class="p">Wants</span> <span class="s">&quot;For 2016 not to have happenend&quot;</span> } <span class="k">-&gt;</span> { <span onmouseout="hideTip(event, 'fs39', 211)" onmouseover="showTip(event, 'fs39', 211)" class="i">p</span> <span class="k">with</span> <span onmouseout="hideTip(event, 'fs2', 212)" onmouseover="showTip(event, 'fs2', 212)" class="i">Gift</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 213)" onmouseover="showTip(event, 'fs3', 213)" class="p">Wants</span> <span class="s">&quot;Pok&#233;mon Sun/Moon&quot;</span> }
+    | _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs39', 214)" onmouseover="showTip(event, 'fs39', 214)" class="i">p</span>
+</code></pre></td>
+</tr>
+</table>
+<p>However, the function <code>needsPokemon</code>  has the signature <code>(Person' -&gt; Person')</code> and our pretty function pipeline only works with <code>(Result&lt;'t&gt; -&gt; Result&lt;'t&gt;)</code>. This is where the <code>map</code> function comes in handy:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs47', 215)" onmouseover="showTip(event, 'fs47', 215)" class="f">map</span> <span onmouseout="hideTip(event, 'fs48', 216)" onmouseover="showTip(event, 'fs48', 216)" class="f">f</span> <span onmouseout="hideTip(event, 'fs49', 217)" onmouseover="showTip(event, 'fs49', 217)" class="i">r</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs49', 218)" onmouseover="showTip(event, 'fs49', 218)" class="i">r</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs33', 219)" onmouseover="showTip(event, 'fs33', 219)" class="p">Nice</span> <span onmouseout="hideTip(event, 'fs50', 220)" onmouseover="showTip(event, 'fs50', 220)" class="i">n</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs33', 221)" onmouseover="showTip(event, 'fs33', 221)" class="p">Nice</span> (<span onmouseout="hideTip(event, 'fs48', 222)" onmouseover="showTip(event, 'fs48', 222)" class="f">f</span> <span onmouseout="hideTip(event, 'fs50', 223)" onmouseover="showTip(event, 'fs50', 223)" class="i">n</span>) 
+    | <span onmouseout="hideTip(event, 'fs34', 224)" onmouseover="showTip(event, 'fs34', 224)" class="p">Naughty</span> <span onmouseout="hideTip(event, 'fs50', 225)" onmouseover="showTip(event, 'fs50', 225)" class="i">n</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs34', 226)" onmouseover="showTip(event, 'fs34', 226)" class="p">Naughty</span> <span onmouseout="hideTip(event, 'fs50', 227)" onmouseover="showTip(event, 'fs50', 227)" class="i">n</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs51', 228)" onmouseover="showTip(event, 'fs51', 228)" class="f">determineGiftRedux&#39;&#39;</span> <span onmouseout="hideTip(event, 'fs28', 229)" onmouseover="showTip(event, 'fs28', 229)" class="i">person</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs28', 230)" onmouseover="showTip(event, 'fs28', 230)" class="i">person</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs36', 231)" onmouseover="showTip(event, 'fs36', 231)" class="f">sharedToys&#39;&#39;</span> 
+    <span class="o">&gt;</span><span class="o">&gt;</span><span class="o">=</span> <span onmouseout="hideTip(event, 'fs37', 232)" onmouseover="showTip(event, 'fs37', 232)" class="f">wasANastyWoman&#39;&#39;</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs47', 233)" onmouseover="showTip(event, 'fs47', 233)" class="f">map</span> <span onmouseout="hideTip(event, 'fs46', 234)" onmouseover="showTip(event, 'fs46', 234)" class="f">needsPokemon</span>
+
+<span onmouseout="hideTip(event, 'fs51', 235)" onmouseover="showTip(event, 'fs51', 235)" class="f">determineGiftRedux&#39;&#39;</span> { <span class="i">Name</span> <span class="o">=</span> <span class="s">&quot;Jeremy&quot;</span>; <span class="i">IsANastyWoman</span> <span class="o">=</span> <span class="k">true</span>; <span class="i">SharedToys</span> <span class="o">=</span> <span class="k">true</span>; <span onmouseout="hideTip(event, 'fs2', 236)" onmouseover="showTip(event, 'fs2', 236)" class="i">Gift</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 237)" onmouseover="showTip(event, 'fs3', 237)" class="p">Wants</span> <span class="s">&quot;For 2016 not to have happenend&quot;</span> }
+<span class="c">(* </span>
+<span class="c">    Result&lt;Person&#39;&gt; = Nice { Name = &quot;Jeremy&quot;;</span>
+<span class="c">                            SharedToys = true;</span>
+<span class="c">                            IsANastyWoman = true;</span>
+<span class="c">                            Gift = Wants &quot;Pok&#233;mon Sun/Moon&quot;;}</span>
+<span class="c">*)</span>
+</code></pre></td>
+</tr>
+</table>
+<p>Using the <code>map</code> function we were able to take a function that wasn't designed to work with our <code>Result</code> pipeline and convert it into one that was.</p>
+<h2>Spoiler: Result is a Monad</h2>
+<p>So far this excercise has a allowed us to:</p>
+<ol>
+<li>Cathartically rip on what has been a disappointing year</li>
+<li>Help Santa easily manage his naughty or nice lists</li>
+<li>Learn about bind (flatMap) and map</li>
+<li><em>Use a monadic type without really talking about monads!</em></li>
+</ol>
+<p>While points 1 and 2 are fun, let's focus on points 3 and 4. Any type that has both a map and a bind function is actually a monadic type. Any type that implements a map function, where that map function follows a few rules, is called a functor. A monad can then be said to be a functor that also implements flatMap.</p>
+<p>If you've worked with F# for any period of time, you've probably used a couple monadic types without knowing it. Before learning about monads, I felt like working with the <code>Option</code> type was nice for being explicit about what a function should accept or return, but that it was awkward in practice. Who would want to have to constantly match on <code>Some</code> and <code>None</code>? Well, it turns out that's not really the best way to work with that type:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// signature is string -&gt; Option string</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs52', 238)" onmouseover="showTip(event, 'fs52', 238)" class="f">optionalString</span> <span onmouseout="hideTip(event, 'fs20', 239)" onmouseover="showTip(event, 'fs20', 239)" class="i">s</span> <span class="o">=</span>
+    <span class="k">if</span> <span onmouseout="hideTip(event, 'fs1', 240)" onmouseover="showTip(event, 'fs1', 240)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs53', 241)" onmouseover="showTip(event, 'fs53', 241)" class="t">String</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs54', 242)" onmouseover="showTip(event, 'fs54', 242)" class="f">IsNullOrEmpty</span>(<span onmouseout="hideTip(event, 'fs20', 243)" onmouseover="showTip(event, 'fs20', 243)" class="i">s</span>) <span class="k">then</span> <span onmouseout="hideTip(event, 'fs55', 244)" onmouseover="showTip(event, 'fs55', 244)" class="p">None</span>
+    <span class="k">else</span> <span onmouseout="hideTip(event, 'fs56', 245)" onmouseover="showTip(event, 'fs56', 245)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs20', 246)" onmouseover="showTip(event, 'fs20', 246)" class="i">s</span>
+
+<span class="c">// signature is string -&gt; Option string</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs57', 247)" onmouseover="showTip(event, 'fs57', 247)" class="f">withCharacters</span> <span onmouseout="hideTip(event, 'fs20', 248)" onmouseover="showTip(event, 'fs20', 248)" class="i">s</span> <span class="o">=</span>
+    <span class="k">if</span> <span onmouseout="hideTip(event, 'fs1', 249)" onmouseover="showTip(event, 'fs1', 249)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs53', 250)" onmouseover="showTip(event, 'fs53', 250)" class="t">String</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs58', 251)" onmouseover="showTip(event, 'fs58', 251)" class="f">IsNullOrWhiteSpace</span>(<span onmouseout="hideTip(event, 'fs20', 252)" onmouseover="showTip(event, 'fs20', 252)" class="i">s</span>) <span class="k">then</span> <span onmouseout="hideTip(event, 'fs55', 253)" onmouseover="showTip(event, 'fs55', 253)" class="p">None</span>
+    <span class="k">else</span> <span onmouseout="hideTip(event, 'fs56', 254)" onmouseover="showTip(event, 'fs56', 254)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs20', 255)" onmouseover="showTip(event, 'fs20', 255)" class="i">s</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs59', 256)" onmouseover="showTip(event, 'fs59', 256)" class="i">empty</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs60', 257)" onmouseover="showTip(event, 'fs60', 257)" class="i">notEmpty</span> <span class="o">=</span> <span class="s">&quot;Hello fellow nasty woman&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs61', 258)" onmouseover="showTip(event, 'fs61', 258)" class="i">whitespace</span> <span class="o">=</span> <span class="s">&quot; &quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs62', 259)" onmouseover="showTip(event, 'fs62', 259)" class="i">oEmpty</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs52', 260)" onmouseover="showTip(event, 'fs52', 260)" class="f">optionalString</span> <span onmouseout="hideTip(event, 'fs59', 261)" onmouseover="showTip(event, 'fs59', 261)" class="i">empty</span> <span class="c">// None</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs63', 262)" onmouseover="showTip(event, 'fs63', 262)" class="i">oNotEmpty</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs52', 263)" onmouseover="showTip(event, 'fs52', 263)" class="f">optionalString</span> <span onmouseout="hideTip(event, 'fs60', 264)" onmouseover="showTip(event, 'fs60', 264)" class="i">notEmpty</span> <span class="c">// Some string</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs64', 265)" onmouseover="showTip(event, 'fs64', 265)" class="i">oWhiteSpace</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs57', 266)" onmouseover="showTip(event, 'fs57', 266)" class="f">withCharacters</span> <span onmouseout="hideTip(event, 'fs61', 267)" onmouseover="showTip(event, 'fs61', 267)" class="i">whitespace</span> <span class="c">// None</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs65', 268)" onmouseover="showTip(event, 'fs65', 268)" class="i">shouldBeNone</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs61', 269)" onmouseover="showTip(event, 'fs61', 269)" class="i">whitespace</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs52', 270)" onmouseover="showTip(event, 'fs52', 270)" class="f">optionalString</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs66', 271)" onmouseover="showTip(event, 'fs66', 271)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs67', 272)" onmouseover="showTip(event, 'fs67', 272)" class="f">bind</span> <span onmouseout="hideTip(event, 'fs57', 273)" onmouseover="showTip(event, 'fs57', 273)" class="f">withCharacters</span> <span class="c">// checkout the usage of bind!</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs68', 274)" onmouseover="showTip(event, 'fs68', 274)" class="i">shouldBeSome</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs60', 275)" onmouseover="showTip(event, 'fs60', 275)" class="i">notEmpty</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs52', 276)" onmouseover="showTip(event, 'fs52', 276)" class="f">optionalString</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs66', 277)" onmouseover="showTip(event, 'fs66', 277)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs67', 278)" onmouseover="showTip(event, 'fs67', 278)" class="f">bind</span> <span onmouseout="hideTip(event, 'fs57', 279)" onmouseover="showTip(event, 'fs57', 279)" class="f">withCharacters</span> <span class="c">// checkout the usage of bind! </span>
+</code></pre></td>
+</tr>
+</table>
+<p>Obviously this example is pretty contrived, but the point is still valid: using <code>Option.bind</code> made working with functions that return <code>Option</code> in a pipeline much clearer.</p>
+<h2>Happy Holidays!</h2>
+<p>I hope that this simple example using a slightly modified <code>Result</code> example helped you start to grasp how monadic types work, and how they can be helpful. There is a wealth of knowledge on monads out there, and these are the resources that helped me out:</p>
+<ol>
+<li><a href="http://fsharpforfunandprofit.com/rop/">Railway Oriented Programming</a></li>
+<li><a href="http://sidburn.github.io/blog/2016/03/27/understanding-map">Understanding Map</a></li>
+<li><a href="https://www.youtube.com/watch?v=zFO1cRr5-qY">Fun fun function: Monads</a></li>
+<li><a href="https://medium.com/real-world-fsharp/understanding-monads-db30eeadf2bf#.toimrjpo8">Understanding Monads: Real World F#</a></li>
+<li><a href="http://fsharp.org">F# Foundation</a> (specifically the mentor program. Thank you Clément!)</li>
+</ol>
+
+<div class="tip" id="fs1">namespace System</div>
+<div class="tip" id="fs2">type Gift =<br />&#160;&#160;| Wants of string<br />&#160;&#160;| Coal<br /><br />Full name: merry.Gift</div>
+<div class="tip" id="fs3">union case Gift.Wants: string -&gt; Gift</div>
+<div class="tip" id="fs4">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs5">union case Gift.Coal: Gift</div>
+<div class="tip" id="fs6">type Person =<br />&#160;&#160;{Name: string;<br />&#160;&#160;&#160;SharedToys: bool;<br />&#160;&#160;&#160;IsANastyWoman: bool;<br />&#160;&#160;&#160;Wants: string;}<br /><br />Full name: merry.Person</div>
+<div class="tip" id="fs7">Person.Name: string</div>
+<div class="tip" id="fs8">Person.SharedToys: bool</div>
+<div class="tip" id="fs9">type bool = Boolean<br /><br />Full name: Microsoft.FSharp.Core.bool</div>
+<div class="tip" id="fs10">Person.IsANastyWoman: bool</div>
+<div class="tip" id="fs11">Person.Wants: string</div>
+<div class="tip" id="fs12">val giftIf : behavior:bool -&gt; person:Person -&gt; string * Gift<br /><br />Full name: merry.giftIf</div>
+<div class="tip" id="fs13">val behavior : bool</div>
+<div class="tip" id="fs14">val person : Person</div>
+<div class="tip" id="fs15">val gift : Gift</div>
+<div class="tip" id="fs16">val sharedToys : person:Person -&gt; string * Gift<br /><br />Full name: merry.sharedToys</div>
+<div class="tip" id="fs17">val wasANastyWoman : person:Person -&gt; string * Gift<br /><br />Full name: merry.wasANastyWoman</div>
+<div class="tip" id="fs18">val determineGift : person:Person -&gt; string * Gift<br /><br />Full name: merry.determineGift</div>
+<div class="tip" id="fs19">val n : string</div>
+<div class="tip" id="fs20">val s : string</div>
+<div class="tip" id="fs21">val naughtyOrNice : person:Person -&gt; string * Gift<br /><br />Full name: merry.naughtyOrNice</div>
+<div class="tip" id="fs22">type Person&#39; =<br />&#160;&#160;{Name: string;<br />&#160;&#160;&#160;SharedToys: bool;<br />&#160;&#160;&#160;IsANastyWoman: bool;<br />&#160;&#160;&#160;Gift: Gift;}<br /><br />Full name: merry.Person&#39;</div>
+<div class="tip" id="fs23">Person&#39;.Name: string</div>
+<div class="tip" id="fs24">Person&#39;.SharedToys: bool</div>
+<div class="tip" id="fs25">Person&#39;.IsANastyWoman: bool</div>
+<div class="tip" id="fs26">Multiple items<br />Person&#39;.Gift: Gift<br /><br />--------------------<br />type Gift =<br />&#160;&#160;| Wants of string<br />&#160;&#160;| Coal<br /><br />Full name: merry.Gift</div>
+<div class="tip" id="fs27">val giftIf&#39; : behavior:bool -&gt; person:Person&#39; -&gt; Person&#39;<br /><br />Full name: merry.giftIf&#39;</div>
+<div class="tip" id="fs28">val person : Person&#39;</div>
+<div class="tip" id="fs29">val sharedToys&#39; : person:Person&#39; -&gt; Person&#39;<br /><br />Full name: merry.sharedToys&#39;</div>
+<div class="tip" id="fs30">val wasANastyWoman&#39; : person:Person&#39; -&gt; Person&#39;<br /><br />Full name: merry.wasANastyWoman&#39;</div>
+<div class="tip" id="fs31">val determineGift&#39; : (Person&#39; -&gt; Person&#39;)<br /><br />Full name: merry.determineGift&#39;</div>
+<div class="tip" id="fs32">type Result&lt;&#39;t&gt; =<br />&#160;&#160;| Nice of &#39;t<br />&#160;&#160;| Naughty of &#39;t<br /><br />Full name: merry.Result&lt;_&gt;</div>
+<div class="tip" id="fs33">union case Result.Nice: &#39;t -&gt; Result&lt;&#39;t&gt;</div>
+<div class="tip" id="fs34">union case Result.Naughty: &#39;t -&gt; Result&lt;&#39;t&gt;</div>
+<div class="tip" id="fs35">val giftIf&#39;&#39; : behavior:bool -&gt; person:Person&#39; -&gt; Result&lt;Person&#39;&gt;<br /><br />Full name: merry.giftIf&#39;&#39;</div>
+<div class="tip" id="fs36">val sharedToys&#39;&#39; : person:Person&#39; -&gt; Result&lt;Person&#39;&gt;<br /><br />Full name: merry.sharedToys&#39;&#39;</div>
+<div class="tip" id="fs37">val wasANastyWoman&#39;&#39; : person:Person&#39; -&gt; Result&lt;Person&#39;&gt;<br /><br />Full name: merry.wasANastyWoman&#39;&#39;</div>
+<div class="tip" id="fs38">val determineGift&#39;&#39; : person:Person&#39; -&gt; Result&lt;Person&#39;&gt;<br /><br />Full name: merry.determineGift&#39;&#39;</div>
+<div class="tip" id="fs39">val p : Person&#39;</div>
+<div class="tip" id="fs40">val failFast : nOrFF:(&#39;a -&gt; Result&lt;&#39;a&gt;) -&gt; nOrF:Result&lt;&#39;a&gt; -&gt; Result&lt;&#39;a&gt;<br /><br />Full name: merry.failFast</div>
+<div class="tip" id="fs41">val nOrFF : (&#39;a -&gt; Result&lt;&#39;a&gt;)</div>
+<div class="tip" id="fs42">val nOrF : Result&lt;&#39;a&gt;</div>
+<div class="tip" id="fs43">val p : &#39;a</div>
+<div class="tip" id="fs44">val determineGiftRedux : person:Person&#39; -&gt; Result&lt;Person&#39;&gt;<br /><br />Full name: merry.determineGiftRedux</div>
+<div class="tip" id="fs45">val determineGiftRedux&#39; : person:Person&#39; -&gt; Result&lt;Person&#39;&gt;<br /><br />Full name: merry.determineGiftRedux&#39;</div>
+<div class="tip" id="fs46">val needsPokemon : p:Person&#39; -&gt; Person&#39;<br /><br />Full name: merry.needsPokemon</div>
+<div class="tip" id="fs47">val map : f:(&#39;a -&gt; &#39;a) -&gt; r:Result&lt;&#39;a&gt; -&gt; Result&lt;&#39;a&gt;<br /><br />Full name: merry.map</div>
+<div class="tip" id="fs48">val f : (&#39;a -&gt; &#39;a)</div>
+<div class="tip" id="fs49">val r : Result&lt;&#39;a&gt;</div>
+<div class="tip" id="fs50">val n : &#39;a</div>
+<div class="tip" id="fs51">val determineGiftRedux&#39;&#39; : person:Person&#39; -&gt; Result&lt;Person&#39;&gt;<br /><br />Full name: merry.determineGiftRedux&#39;&#39;</div>
+<div class="tip" id="fs52">val optionalString : s:string -&gt; string option<br /><br />Full name: merry.optionalString</div>
+<div class="tip" id="fs53">Multiple items<br />type String =<br />&#160;&#160;new : value:char -&gt; string + 7 overloads<br />&#160;&#160;member Chars : int -&gt; char<br />&#160;&#160;member Clone : unit -&gt; obj<br />&#160;&#160;member CompareTo : value:obj -&gt; int + 1 overload<br />&#160;&#160;member Contains : value:string -&gt; bool<br />&#160;&#160;member CopyTo : sourceIndex:int * destination:char[] * destinationIndex:int * count:int -&gt; unit<br />&#160;&#160;member EndsWith : value:string -&gt; bool + 2 overloads<br />&#160;&#160;member Equals : obj:obj -&gt; bool + 2 overloads<br />&#160;&#160;member GetEnumerator : unit -&gt; CharEnumerator<br />&#160;&#160;member GetHashCode : unit -&gt; int<br />&#160;&#160;...<br /><br />Full name: System.String<br /><br />--------------------<br />String(value: nativeptr&lt;char&gt;) : unit<br />String(value: nativeptr&lt;sbyte&gt;) : unit<br />String(value: char []) : unit<br />String(c: char, count: int) : unit<br />String(value: nativeptr&lt;char&gt;, startIndex: int, length: int) : unit<br />String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int) : unit<br />String(value: char [], startIndex: int, length: int) : unit<br />String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int, enc: Text.Encoding) : unit</div>
+<div class="tip" id="fs54">String.IsNullOrEmpty(value: string) : bool</div>
+<div class="tip" id="fs55">union case Option.None: Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs56">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs57">val withCharacters : s:string -&gt; string option<br /><br />Full name: merry.withCharacters</div>
+<div class="tip" id="fs58">String.IsNullOrWhiteSpace(value: string) : bool</div>
+<div class="tip" id="fs59">val empty : string<br /><br />Full name: merry.empty</div>
+<div class="tip" id="fs60">val notEmpty : string<br /><br />Full name: merry.notEmpty</div>
+<div class="tip" id="fs61">val whitespace : string<br /><br />Full name: merry.whitespace</div>
+<div class="tip" id="fs62">val oEmpty : string option<br /><br />Full name: merry.oEmpty</div>
+<div class="tip" id="fs63">val oNotEmpty : string option<br /><br />Full name: merry.oNotEmpty</div>
+<div class="tip" id="fs64">val oWhiteSpace : string option<br /><br />Full name: merry.oWhiteSpace</div>
+<div class="tip" id="fs65">val shouldBeNone : string option<br /><br />Full name: merry.shouldBeNone</div>
+<div class="tip" id="fs66">module Option<br /><br />from Microsoft.FSharp.Core</div>
+<div class="tip" id="fs67">val bind : binder:(&#39;T -&gt; &#39;U option) -&gt; option:&#39;T option -&gt; &#39;U option<br /><br />Full name: Microsoft.FSharp.Core.Option.bind</div>
+<div class="tip" id="fs68">val shouldBeSome : string option<br /><br />Full name: merry.shouldBeSome</div>
+
+        </div>
+        <footer>
+            <hr/>
+            <p>Powered by <a href="https://twitter.com/mattdrivendev">MattDrivenDev's</a>&nbsp;<a href="https://github.com/fsprojects/FsBlog">FsBlog</a></p>
+            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/dbtek/dbyll">dbtek</a></small></p>
+            <p>
+                &copy; 2016
+            </p>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
