@@ -541,7 +541,7 @@
 <div class="tip" id="fs29">val sharedToys&#39; : person:Person&#39; -&gt; Person&#39;<br /><br />Full name: merry.sharedToys&#39;</div>
 <div class="tip" id="fs30">val wasANastyWoman&#39; : person:Person&#39; -&gt; Person&#39;<br /><br />Full name: merry.wasANastyWoman&#39;</div>
 <div class="tip" id="fs31">val determineGift&#39; : (Person&#39; -&gt; Person&#39;)<br /><br />Full name: merry.determineGift&#39;</div>
-<div class="tip" id="fs32">type Result&lt;&#39;t&gt; =<br />&#160;&#160;| Nice of &#39;t<br />&#160;&#160;| Naughty of &#39;t<br /><br />Full name: merry.Result&lt;_&gt;</div>
+<div class="tip" id="fs32">Multiple items<br />module Result<br /><br />from Microsoft.FSharp.Core<br /><br />--------------------<br />type Result&lt;&#39;t&gt; =<br />&#160;&#160;| Nice of &#39;t<br />&#160;&#160;| Naughty of &#39;t<br /><br />Full name: merry.Result&lt;_&gt;<br /><br />--------------------<br />type Result&lt;&#39;T,&#39;TError&gt; =<br />&#160;&#160;| Ok of ResultValue: &#39;T<br />&#160;&#160;| Error of ErrorValue: &#39;TError<br /><br />Full name: Microsoft.FSharp.Core.Result&lt;_,_&gt;</div>
 <div class="tip" id="fs33">union case Result.Nice: &#39;t -&gt; Result&lt;&#39;t&gt;</div>
 <div class="tip" id="fs34">union case Result.Naughty: &#39;t -&gt; Result&lt;&#39;t&gt;</div>
 <div class="tip" id="fs35">val giftIf&#39;&#39; : behavior:bool -&gt; person:Person&#39; -&gt; Result&lt;Person&#39;&gt;<br /><br />Full name: merry.giftIf&#39;&#39;</div>
@@ -585,7 +585,7 @@
             <p>Powered by <a href="https://twitter.com/mattdrivendev">MattDrivenDev's</a>&nbsp;<a href="https://github.com/fsprojects/FsBlog">FsBlog</a></p>
             <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/dbtek/dbyll">dbtek</a></small></p>
             <p>
-                &copy; 2016
+                &copy; 2017
             </p>
         </footer>
     </div>

@@ -5,10 +5,19 @@
     <description>I need a description
 </description>
     <item>
+      <title>Eating Vegan at .NET Fringe 2017</title>
+      <guid>http://localhost:8080/FsBlog/blog/2017/06-01-eating</guid>
+      <link>http://localhost:8080/FsBlog/blog/2017/06-01-eating/index.html</link>
+      <pubDate>Thu, 01 Jun 2017 13:36:04 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
       <title>Merry Monad Xmas</title>
       <guid>http://localhost:8080/FsBlog/blog/2016/12-03-merry</guid>
       <link>http://localhost:8080/FsBlog/blog/2016/12-03-merry/index.html</link>
-      <pubDate>Sun, 11 Dec 2016 10:05:02 GMT</pubDate>
+      <pubDate>Sun, 11 Dec 2016 12:05:02 GMT</pubDate>
       <description>
 
 </description>
@@ -17,7 +26,7 @@
       <title>Hosting Suave as a Sub App in IIS &amp; Asking for Help</title>
       <guid>http://localhost:8080/FsBlog/blog/2016/02-13-suave-sub-app-asking-for-help</guid>
       <link>http://localhost:8080/FsBlog/blog/2016/02-13-suave-sub-app-asking-for-help/index.html</link>
-      <pubDate>Sat, 13 Feb 2016 14:14:38 GMT</pubDate>
+      <pubDate>Sat, 13 Feb 2016 16:14:38 GMT</pubDate>
       <description>
 
 </description>
@@ -26,7 +35,7 @@
       <title>F# Events, Reactive Programming and Async Workflows</title>
       <guid>http://localhost:8080/FsBlog/blog/2015/12-3-fsharp-events-rx-async</guid>
       <link>http://localhost:8080/FsBlog/blog/2015/12-3-fsharp-events-rx-async/index.html</link>
-      <pubDate>Thu, 03 Dec 2015 06:00:30 GMT</pubDate>
+      <pubDate>Thu, 03 Dec 2015 08:00:30 GMT</pubDate>
       <description>
 
 </description>
@@ -35,7 +44,7 @@
       <title>Mobile Apps w/ F#</title>
       <guid>http://localhost:8080/FsBlog/blog/2015/09-23-mobile-apps-w-f</guid>
       <link>http://localhost:8080/FsBlog/blog/2015/09-23-mobile-apps-w-f/index.html</link>
-      <pubDate>Wed, 23 Sep 2015 14:25:51 GMT</pubDate>
+      <pubDate>Wed, 23 Sep 2015 16:25:51 GMT</pubDate>
       <description>
 
 </description>
@@ -44,7 +53,7 @@
       <title>Code on the Beach Wrap-up</title>
       <guid>http://localhost:8080/FsBlog/blog/2015/08-18-code-on-the-beach-wrap-up</guid>
       <link>http://localhost:8080/FsBlog/blog/2015/08-18-code-on-the-beach-wrap-up/index.html</link>
-      <pubDate>Tue, 18 Aug 2015 15:11:39 GMT</pubDate>
+      <pubDate>Tue, 18 Aug 2015 17:11:39 GMT</pubDate>
       <description>
 
 </description>
@@ -53,7 +62,7 @@
       <title>JavaScript: The Good Parts: The Good Parts</title>
       <guid>http://localhost:8080/FsBlog/blog/2015/06-17-JavaScriptTheGoodParts</guid>
       <link>http://localhost:8080/FsBlog/blog/2015/06-17-JavaScriptTheGoodParts/index.html</link>
-      <pubDate>Wed, 17 Jun 2015 12:34:00 GMT</pubDate>
+      <pubDate>Wed, 17 Jun 2015 14:34:00 GMT</pubDate>
       <description>
 
 </description>
