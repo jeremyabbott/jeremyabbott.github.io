@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Jeremy Abbott</title>
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="/assets/resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/resources/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+
+    <!-- FSharp.Formatting Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/fsharp.formatting/tooltips.css" />
+    <script type="text/javascript" src="/fsharp.formatting/tooltips.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="" href="/rss.xml">
+</head>
+<body>
+    <!-- Mobile Nav Section -->
+    <nav class="navbar navbar-default visible-xs" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a type="button" class="navbar-toggle nav-link" href="http://github.com/jeremyabbott">
+                <i class="fa fa-github"></i>
+            </a>
+
+            <a type="button" class="navbar-toggle nav-link" href="http://twitter.com/mrjabbott">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a type="button" class="navbar-toggle nav-link" href="mailto:jeremymabbott@gmail.com">
+                <i class="fa fa-envelope"></i>
+            </a>
+            <a class="navbar-brand" href="/">
+                <img src="http://www.gravatar.com/avatar/d2087702a492be991c18b4dc0fed20d1.png?s=35" class="img-circle" />
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="http://resumejeremyabbott.azurewebsites.net/">Résumé</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+
+    <!-- nav-menu-dropdown -->
+    <div class="btn-group hidden-xs" id="nav-menu">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bars"></i>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="/blog"><i class="fa fa-pencil"></i>Blog</a></li>
+            <li><a href="http://resumejeremyabbott.azurewebsites.net/"><i class="fa fa-file-pdf-o"></i>Résumé</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-arrow-up"></i>Top of Page</a></li>
+        </ul>
+    </div>
+
+    <!-- sidebar -->
+    <div class="col-sm-3 sidebar hidden-xs">
+        <header class="sidebar-header" role="banner">
+            <a href="/">
+                <img src="http://www.gravatar.com/avatar/d2087702a492be991c18b4dc0fed20d1?s=150" class="img-circle" />
+            </a>
+            <h3 class="title">
+                <a href="/">Jeremy Abbott</a>
+            </h3>
+            </header>
+        <div id="bio" class="text-center">
+        <p>Too Gay to λ</p>
+        <p>🌈Human, ✊🏼‏activist, software engineer, functional programming enthusiast, occassional conference speaker.</p>
+        </div>
+        <div id="contact-list" class="text-center">
+            <ul class="list-unstyled list-inline">
+                <li>
+                    <a class="btn btn-default btn-sm" href="https://github.com/jeremyabbott">
+                        <i class="fa fa-github-alt fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-default btn-sm" href="https://twitter.com/mrjabbott">
+                        <i class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-default btn-sm" href="mailto:jeremymabbott@gmail.com">
+                        <i class="fa fa-envelope fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul id="contact-list-secondary" class="list-unstyled list-inline">
+                <li>
+                    <a class="btn btn-default btn-sm" href="/rss.xml">
+                        <i class="fa fa-rss fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-default btn-sm" href="http://resumejeremyabbott.azurewebsites.net/">
+                        <i class="fa fa-file-text-o fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="col-sm-9 col-sm-offset-3">
+        <div class="page-header">
+            <h1>Jeremy Abbott</h1>
+            <em>(Not the Figure Skater)</em>
+        </div>
+        <div class="container">
+            <h1>Implementing the A in SAFE with the Azure CLI</h1>
+
+
+<p>I've been working with the <a href="https://safe-stack.github.io/">SAFE Stack</a> in my free time, and it's a thing of beauty. We just had our annual 3-day hackathon, and the team I was on used the SAFE Stack to great effect. If you're not familiar with SAFE, it stands for <a href="https://suave.io">Suave</a>, <a href="https://favle.io">Fable</a>, <a href="https://azure.com/">Azure</a>, and <a href="https://fable-elmish.github.io/elmish/">Elmish</a>. It's a full stack application model leveraging .NET Core and F#. The back-end runs on .NET Core and Suave. The front-end compiles F# into JavaScript via Fable. Fable allows you to leverage the awesomeness that is F#, in addition to the vastness of the JavaScript ecosystem. In the SAFE Stack, Fable uses Elmish, an application architecture for Fable based on <a href="https://www.elm-tutorial.org/en/02-elm-arch/01-introduction.html">Elm</a>.</p>
+<p>The SAFE Stack allows you to share code between the back and front ends, provides front-end type safety, the ability to leverage .NET types in your front-end code, and a rapid development experience thanks to .NET Core's <code>dotnet watch</code> and webpack dev server. This means that you can edit your code and see the changes in real time without having to recompile and run tests.</p>
+<p>The <a href="https://github.com/SAFE-Stack/SAFE-BookStore">SAFE Bookstore</a> repo provides an excellent introduction to how the stack works.</p>
+<p>The SAFE Bookstore repo details how to publish the application to Azure's Web App for Containers via Azure Portal. However, I had the privilege of seeing Scott Hanselman demo a lot of cool things with the <a href="https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest">Azure CLI</a>, and wanted to see how hard it would be to do this with something leveraging the SAFE Stack.</p>
+<p>As it turns out, <a href="https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image">the steps are fairly simple</a>, and you can do it directly from VS Code! The first time I tried to do this, it didn't work, but I'm fairly certain the problem was between the user and the keyboard, as it's worked every time since then.</p>
+<h2>The Azure Account extension for VS Code</h2>
+<p>These steps assume you have <a href="https://code.visualstudio.com/">VS Code</a> installed, so if you don't have it, go get it. It's the best editor out there, and its especially great for F# thanks to <a href="http://ionide.io/">Ionide</a>.</p>
+<p>Next, get the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account">Azure Account</a> extension. You can install it directly from the link, or look it up in the VS Code Extensions tool directly in VS Code.</p>
+<h3>Sign In to Azure Account</h3>
+<p>With the extension installed, open the VS Code Command Palette with the shortcut <code>[cmd]+[shift]+[p]</code> (on Windows its <code>[ctrl]+[shift]+[p]</code>.</p>
+<p>Type "Azure" in the Command Palette textbox.</p>
+<p><img src="/images/azureCli/Azure_1.png" alt="Azure Account Sign In" title="Azure Account Sign In" /></p>
+<p>The palette will show you all the commands available for the Azure Account extension. Select "Azure: Sign In."</p>
+<p>This command is going to prompt you to copy a device code (shown in the prompt) and launch a url in your default browser. It will even launch the browser for you and copy the device code to your clipboard. It's easiest to click the "Copy &amp; Open" button.</p>
+<p>In the browser, enter your device code. Next, login using your Azure credentials. If you don't have an account you'll need to create one, and fortunately you can do that from the Azure Account extension too.</p>
+<h2>Install the Remaining Dependencies</h2>
+<p>Go ahead and clone the SAFE BookStore repo.</p>
+<p><strong>Don't forget to use your github username here</strong>:</p>
+<p><code>git clone git@github.com:&lt;your github username&gt;/SAFE-BookStore.git</code></p>
+<p>The SAFE BookStore app runs on <a href="https://www.microsoft.com/net/download/">.NET Core</a>, but some of its dependencies still require the full .NET Framework (or <a href="http://www.mono-project.com/">Mono</a> if you're not on Windows).</p>
+<p>You'll also need to have <a href="https://nodejs.org/">node</a>, <a href="https://yarnpkg.com">yarn</a>, and <a href="https://www.docker.com/">docker</a> installed if you don't have it already. The installation steps for these tools will vary depending on your OS, but if you install yarn via <a href="https://brew.sh/">HomeBrew</a> it will also install node for you. For docker you'll have to install the desktop client appropriate for your OS.</p>
+<p>The SAFE Bookstore application not only uses F# for the application itself, but also for the build chain thanks to <a href="https://fake.build/">FAKE</a>. FAKE is a powerful CI/CD orchestration tool, and the SAFE Bookstore sample app demonstrates how powerful it can be.</p>
+<h3>Quick Check In</h3>
+<p>At this point you should have the following installed/forked/cloned:</p>
+<ol>
+<li><a href="https://code.visualstudio.com/">VS Code</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account">Azure Account extension for VS Code</a></li>
+<li>.NET Framework/<a href="http://www.mono-project.com/">Mono</a></li>
+<li><a href="https://nodejs.org/">node</a></li>
+<li><a href="https://yarnpkg.com">yarn</a></li>
+<li><a href="https://www.docker.com/">Docker</a></li>
+<li><a href="https://github.com/SAFE-Stack/SAFE-BookStore">SAFE Bookstore repo</a> (forked and cloned)</li>
+</ol>
+<h2>Make a Docker Image</h2>
+<p>It's worth repeating that FAKE is awesome. It's going to do the rest of the heavy lifting for you at this point. Open a terminal to where the SAFE BookStore repo was cloned.</p>
+<p>Open the <code>RELEASE_NOTES.md</code> files and add a new line to the top like:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="md">### 1.0.0 - 2017-12-10
+* F# is Amazing
+</code></pre></td></tr></table>
+<p>]This step is important because the next step assumnes that a new version is about to be deployed, and in a way it is: it's your version!</p>
+<p>Enter the following command:</p>
+<p><em>On macOS:</em> <code>./build.sh Deploy "DockerLoginServer=docker.io" "DockerImageName=****" "DockerUser=****" "DockerPassword=***"</code></p>
+<p><em>On Windows:</em> <code>.\build.cmd Deploy "DockerLoginServer=docker.io" "DockerImageName=****" "DockerUser=****" "DockerPassword=***"</code></p>
+<p>Regardless of OS you'll need to replace <code>DockerImageName</code>, <code>DockerUser</code>, and <code>DockerPassword</code> with your credentials.</p>
+<p><em>Note:</em> Manually entering your DockerPassword in the terminal isn't great, and the docker cli will warn you of that. You can look at the <a href="https://docs.docker.com/engine/reference/commandline/login/">docker login</a> documentation for details on how to send your password to docker login without having to type it in. Just make sure that you <strong>ADD ANY FILES WITH SECURE INFORMATION TO YOUR .gitignore</strong>.</p>
+<h3>What Did We Just Do???</h3>
+<p>SO MANY THINGS. Actually the script called in the previous step is telling FAKE to depoy a new docker image to Docker Hub. And to do that it had to do a lot of other things:</p>
+<ul>
+<li>Clean</li>
+<li>InstallDotNetCore</li>
+<li>InstallClient</li>
+<li>SetReleaseNotes</li>
+<li>BuildServer</li>
+<li>BuildClient</li>
+<li>BuildServerTests</li>
+<li>RunServerTests</li>
+<li>BuildClientTests</li>
+<li>RenameDrivers</li>
+<li>RunClientTests</li>
+<li>BundleClient</li>
+<li>All</li>
+<li>CreateDockerImage</li>
+<li>TestDockerImage</li>
+<li>PrepareRelease</li>
+<li>Deploy</li>
+</ul>
+<p>That's right. FAKE is installing .NET Core if it isn't there, installing all the client and server dependencies, running all the unit and integration tests, creating an optimized production bundle for the front-end, then creating <strong>AND</strong> testing a Docker Image, and finally publishing the image to Docker Hub.</p>
+<p>FAKE already tested the image and made a container, but you can test it again yourself by running <code>docker run -d -p 8085:8085 &lt;docker username&gt;/&lt;image name&gt;</code> where <code>&lt;image name&gt;</code> is what you passed in for <code>DockerImageName</code>.</p>
+<p>For example, if your docker username was "pikachu" and you named the image "fsharpisawesome", you would run <code>docker run -d -p 8085:8085 pikachu/fsharpisawesome</code>.</p>
+<p>The <code>-d</code> runs the docker container in detached mode, which prevents docker from tying up your terminal. <code>-p 8085:8085</code> maps port 8085 on your host machine to port 8085 within the container. If you open the <code>Dockerfile</code> in the repo, you'll see that port 8085 is exposed via the <code>EXPOSE</code> command. Port 8080 is also exposed, but that's only used during development.</p>
+<p>You can stop the running container by getting the docker container id via <code>docker ps</code>. This will list your running containers. Copy the container ID for the container you just created. Now run <code>docker stop &lt;container id&gt;</code>.</p>
+<h2>Deploying the Image to Azure</h2>
+<p>Now that we have our own SAFE Stack application packed into an image and stored in DockerHub, we can deploy it to Azure!</p>
+<p>In VS Code hit <code>[cmd]+[shift]+[p]</code> (or <code>[ctrl]+[shift]+[p]</code> on Windows) to open the Command Palette and enter "Azure" again. This time select "Open Bash in Cloud Shell".</p>
+<p>After executing the command VS Code will notify you that it is provisioning "Bash in Cloud Shell" for you.</p>
+<p>A new terminal window should open in VS Code. Type <code>az</code> in it to use Azure CLI 2.0.</p>
+<p>Now we just need to enter 4 commands to get our image deployed using Azure Web App for Containers.</p>
+<p>First we need to create a <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview">resource group</a>. Resource groups are in specific geographic locations, and are used to group related Azure resources (like web apps, databases, etc.) together.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh">az group create --name &lt;some resource name&gt; --location "West US"
+</code></pre></td></tr></table>
+<p>A working (variables filled out) command would be:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh">az group create --name fsharpIsAwesome --location "West US"
+</code></pre></td></tr></table>
+<p>Next we need to create an <a href="https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview">app service plan</a>. An app service plan describes the resources available to your application. The following command creates an "S1" linux app service plan for the resource group we created in the previous step.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh">az appservice plan create --name &lt;app service plan name&gt; --resource-group &lt;resource group name&gt; --sku S1 --is-linux
+</code></pre></td></tr></table>
+<p>Again, a working example would look like:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh">az appservice plan create --name fsharpIsAwesome --resource-group fsharpIsAwesome --sku S1 --is-linux
+</code></pre></td></tr></table>
+<p>Finally we need to create the web app instance. This command uses the resource group and app service plan created in the last two steps:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh">az webapp create --resource-group &lt;resource group name&gt; --plan &lt;app service plan name&gt; --name &lt;web app name&gt; --deployment-container-image-name &lt;fully qualified docker image name&gt;
+</code></pre></td></tr></table>
+<p>And with the variables filled out, this command would look like:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh">az webapp create --resource-group fsharpIsAwesome --plan fsharpIsAwesome --name fsharpIsAwesome --deployment-container-image-name pikachu/fsharpisawesome:latest
+</code></pre></td></tr></table>
+<p>Finally, we need to map the web app's website port to the deployed container's exposed port:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh">az webapp config appsettings set --resource-group &lt;resource group name&gt; --name &lt;web app name&gt; --settings WEBSITES_PORT=8085
+</code></pre></td></tr></table>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh">az webapp config appsettings set --resource-group fsharpIsAwesome --name fsharpIsAwesome --settings WEBSITES_PORT=8085
+</code></pre></td></tr></table>
+<p>Note that if you create your Web App for Containers instance via Azure Portal, <a href="https://blogs.msdn.microsoft.com/waws/2017/09/08/things-you-should-know-web-apps-and-linux/#OnePort">you still have to map your container's port via the Azure CLI. There is no support for this via the portal</a>.</p>
+<p>It may take a few minutes for your app to start up, but when it's ready, it will be available at <code>http://&lt;web app name&gt;.azurewebistes.net</code>.</p>
+<p>Finally, after you've verified that your app is running on Azure, you can clean up your resource using the following command:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh">az group delete --name &lt;resource group name&gt;
+</code></pre></td></tr></table>
+<p>For convenience, here are all 5 commands at in one block:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="sh"># create a resource group
+az group create --name &lt;some resource name&gt; --location "West US"
+
+# create an app service plan
+az appservice plan create --name &lt;app service plan name&gt; --resource-group &lt;resource group name&gt; --sku S1 --is-linux
+
+# create the web app
+az webapp create --resource-group &lt;resource group name&gt; --plan &lt;app service plan name&gt; --name &lt;web app name&gt; --deployment-container-image-name &lt;fully qualified docker image name&gt;
+
+# map port 8085 to the web app's WEBSITES_PORT
+az webapp config appsettings set --resource-group &lt;resource group name&gt; --name &lt;web app name&gt; --settings WEBSITES_PORT=8085
+
+# delete the resource group and anything that depends on it.
+az group delete --name &lt;resource group name&gt;
+</code></pre></td></tr></table>
+<h2>Wrapping it Up</h2>
+<p>The <a href="https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image">Azure documentation</a> goes into detail about how to setup a Web App for Containers from a private docker registry, in addition to configuring SSH for accessing your container, and setting up a custom domain, and configuring SSL. Note that SSL terminates at Azure, so you do not need to configure Suave to support SSL.</p>
+<p>The SAFE Stack allows you to be wildy productive. Not only do you get hot reloading on the client and server, you get shared code in a terse, readable typesafe language that's easy to reason about. And the stack itself isn't the only thing using F#. The testing frameworks (<a href="https://lefthandedgoat.github.io/canopy/">Canopy</a> and <a href="https://github.com/haf/expecto">Expecto</a>), the .NET package manager, and the CI/CD script are written in F#.</p>
+<p>There's never been a better time to give functional programming a try with F# and .NET, and a lot of the "yak shaving" has already been done for you!</p>
+
+
+        </div>
+        <footer>
+            <hr/>
+            <p>Powered by <a href="https://twitter.com/mattdrivendev">MattDrivenDev's</a>&nbsp;<a href="https://github.com/fsprojects/FsBlog">FsBlog</a></p>
+            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/dbtek/dbyll">dbtek</a></small></p>
+            <p>
+                &copy; 2017
+            </p>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="/assets/resources/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+</html>
