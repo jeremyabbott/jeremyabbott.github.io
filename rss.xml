@@ -5,6 +5,15 @@
     <description>I need a description
 </description>
     <item>
+      <title>2017</title>
+      <guid>http://localhost:8080/FsBlog/blog/2018/01-01-2017</guid>
+      <link>http://localhost:8080/FsBlog/blog/2018/01-01-2017/index.html</link>
+      <pubDate>Mon, 01 Jan 2018 13:20:58 GMT</pubDate>
+      <description>
+
+</description>
+    </item>
+    <item>
       <title>Implementing the A in SAFE with the Azure CLI</title>
       <guid>http://localhost:8080/FsBlog/blog/2017/12-09-implementing</guid>
       <link>http://localhost:8080/FsBlog/blog/2017/12-09-implementing/index.html</link>
